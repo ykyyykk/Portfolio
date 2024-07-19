@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作品集</title>
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="header-title">汪世傑作品集</a>
+      <nav>
+        <ul>
+          <li><a href="about.html">自我介紹</a></li>
+          <li><a href="portfolio.html">作品集</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="carousel-container">
+      <div class="carousel-item">
+        <div class="carousel-title">逢魔之時</div>
+        <div class="carousel-image">
+          <button class="arrow left-arrow" onclick="previousImage(0)">
+            &#10094;
+          </button>
+          <img id="carousel-image-0" src="/image/1.jpg" alt="作品圖片" />
+          <button class="arrow right-arrow" onclick="nextImage(0)">
+            &#10095;
+          </button>
+        </div>
+        <div class="support">支援平台</div>
+        <div class="platforms">
+          <div class="platform">◆</div>
+          <div class="platform">◆</div>
+          <div class="platform">◆</div>
+          <div class="platform">◆</div>
+        </div>
+      </div>
+    </div>
+    <script src="firstgame.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>聯絡我</title>
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="header-title">汪世傑作品集</a>
+      <nav>
+        <ul>
+          <li><a href="about.html">自我介紹</a></li>
+          <li><a href="portfolio.html">作品集</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <table class="contact-table">
+      <tr>
+        <td><img src="image/line.png" alt="line" /></td>
+        <td>0950074430</td>
+      </tr>
+
+      <tr>
+        <td><img src="image/gmail.png" alt="gmail" /></td>
+        <td>louise87276@gmail.com</td>
+      </tr>
+    </table>
+
+    <table class="form-table">
+      <tr>
+        <td>
+          <label>姓名</label>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>電子郵件</label>
+        </td>
+        <td>
+          <input type="email" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>詢問內容</label>
+        </td>
+        <td>
+          <textarea id="message" name="your-message"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <!-- value直接寫在button上面 發送數據到action指定的URL -->
+          <input type="submit" class="button" value="送出" />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

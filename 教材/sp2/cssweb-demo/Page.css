@@ -1,0 +1,492 @@
+﻿<!--
+
+
+/* 整體環境設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+body {
+ margin: 5px 0px 0px 0px;                       /* 網頁上下左右邊界間距設定 */
+ padding: 0px 0px 0px 0px;                      /* 網頁上下左右內距間距設定 */
+ font-family: verdana, arial, helvetica, sans-serif;   /* 網頁整體字形設定 */
+}
+#body-hold {
+ border-left: 200px solid #78EBFF;              /* 左方區塊寬度與背景色彩設定，若要此區塊背景色彩設定為透明請輸入transparent; */
+ background-color: #78FF9C;                     /* 中間主內容區塊背景色彩設定 */
+ background-image: url();                       /* 整個中間區域背景圖檔設定，若需要左方區塊與中間主內容區塊有材質圖檔背景，請在()內填上圖檔名稱與路徑 */
+}
+a {color: #0033CC;}                             /* 一般超連結的色彩預設值(若別區無個別設定則超連結色彩依此設定) */
+a:visited {color: #0033CC;}                     /* 參觀過超連結的色彩預設值(若別區無個別設定則超連結色彩依此設定) */
+a:hover {color: #0099CC;}                       /* 當滑鼠移到超連結上的色彩預設值(若別區無個別設定則超連結色彩依此設定) */
+a:active {color: #0099CC;}                      /* 當滑鼠正在按下點選超連結的色彩預設值(若別區無個別設定則超連結色彩依此設定) */
+
+
+/* 瀏覽器捲軸色彩樣式與網頁背景色彩設定(瀏覽器捲軸設定僅對於Internet Explorer瀏覽器有作用，其餘瀏覽器不支援此語法)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+html {
+ background-color: #CCCCCC;                     /* 網頁整體背景色彩設定(非IE瀏覽器相容設定) */
+ background-image: url();                       /* 網頁整體背景圖檔設定(非IE瀏覽器相容設定)，有需要請在()內填上圖檔名稱與路徑 */
+ margin: 2px 0px 0px 0px;                       /* 網頁上下左右邊界間距設定(非IE瀏覽器相容設定) */
+ padding: 0px 0px 0px 0px;                      /* 網頁上下左右內距間距設定(非IE瀏覽器相容設定) */
+ font-family: verdana, arial, helvetica, sans-serif;   /* 網頁整體字形設定(非IE瀏覽器相容設定) */ 
+ scrollbar-face-color: #F6F6F6;                 /* 捲軸主要色彩 */
+ scrollbar-highlight-color: #FFFFFF;            /* 捲軸上與左方的內邊框色彩 */
+ scrollbar-3dlight-color: #CCCCCC;              /* 捲軸下與右方的外邊框色彩 */
+ scrollbar-darkshadow-color: #FFFFFF;           /* 捲軸下與右方的外邊框色彩 */
+ scrollbar-shadow-color: #CCCCCC;               /* 捲軸下與右方的內邊框色彩 */
+ scrollbar-arrow-color: #330000;                /* 捲軸上下箭頭色彩 */
+ scrollbar-track-color: #F6F6F6;                /* 捲軸背景色彩 */
+
+}
+
+
+/* 置中對齊區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#div-center {
+ width: 900px;                                  /* 此區塊寬度設定，如要改成依百分比自動縮放，請將px改成%，並給予適當數值 */
+ border: 2px solid #A6B2BC;                     /* 此區塊外框線條色彩設定 */
+ background-color: #FFFFFF;                     /* 此區塊背景色彩設定 */
+ background-image: url();                       /* 此區塊背景圖檔設定，有需要請在()內填上圖檔名稱與路徑 */
+ height: 100%;                                  /* 此區塊高度設定 */
+ margin-left: auto;                             /* 網頁左方自動對齊置中設定 */
+ margin-right: auto;                            /* 網頁右方自動對齊置中設定 */
+ padding: 10px 10px 10px 10px;                  /* 此區塊上下左右間距設定 */
+}
+
+
+/* 上方區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#header {
+ height: 120px;                                 /* 此區塊高度設定 */
+ border-bottom: 1px dotted #CCCCCC;             /* 此區塊的下方虛線線條與色彩設定 */
+ background-color: #F8DBA9;                     /* 此區塊背景色彩設定 */
+ background-image: url();                       /* 此區塊背景圖檔設定，有需要請在()內填上圖檔名稱與路徑 */
+ width: 100%;                                   /* 此區塊寬度設定 */
+ position:relative;                             /* 此區塊以相對配置方式來指定 */
+}
+#header p { margin: 13px 0px 0px 0px; }         /* 文字或表格與與此區塊上、下、左、右間距設定 */
+
+
+/* LOGO區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#logo {
+	height: 84px; /* 此區塊高度設定 */;
+	font-size: 24pt; /* 文字大小設定 */;
+	font-weight: 500; /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */;
+	color: #FF0000;                                 /* 文字色彩 */
+	width: 60%; /* 此區塊寬度設定 */;
+	float: left;                                     /* 區塊漂浮位置靠左 */
+}
+.logo a:link {color: #008800;}                   /* 此區一般超連結的色彩 */
+.logo a:visited {color: #008800;}                /* 此區參觀過超連結的色彩 */
+.logo a:hover {color: #553900;}                  /* 此區當滑鼠移到超連結上的色彩 */
+.logo a:active {color: #553900;}                 /* 此區當滑鼠正在按下點選超連結的色彩 */
+#logo p {
+ margin: 2px 2px 16px 16px;                      /* 文字或表格與與此區塊上、下、左、右間距設定 */
+}
+
+
+/* 語系區設定(當有多語系版本時此區塊才作用)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#language {
+ height: 70px;                                   /* 此區塊高度設定 */
+ font-size: 10pt;                                /* 文字大小設定 */
+ font-weight: 200;                               /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ width: 40%;                                     /* 此區塊寬度設定 */
+ float: right;                                   /* 區塊漂浮位置靠右 */
+ text-align: right;                              /* 此區塊文字靠右 */
+ color: #333333;                                 /* 文字色彩 */
+}
+#language p {
+margin: 2px 2px 16px 16px;                       /* 文字或表格與與此區塊上、下、左、右間距設定 */
+}
+.language a:link {color: #E90080;}              /* 此區一般超連結的色彩 */
+.language a:visited {color: #E90080;}           /* 此區參觀過超連結的色彩 */
+.language a:hover {color: #11CFFF;}             /* 此區當滑鼠移到超連結上的色彩 */
+.language a:active {color: #11CFFF;}            /* 此區當滑鼠正在按下點選超連結的色彩 */
+
+
+/* 上方主選單設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#navigation {
+ width: 670px;                                   /* 此區塊寬度設定 */
+ font-size: 11pt;                                /* 文字大小設定 */
+ font-weight: 700;                               /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+ background-color: transparent;                  /* 此區塊背景色彩設定為透明 */
+ margin-left: auto;                              /* 此區塊左方自動對齊置中設定 */
+ margin-right: auto;                             /* 此區塊右方自動對齊置中設定 */  
+ clear: both;                                    /* 加上此段才能使非IE瀏覽器觀看時不會發生排版顯示錯誤 */    
+}
+#navigation a {
+ background: url('NavigationImage/button18a.gif') no-repeat left top;   /* 主選單左方按鈕背景圖檔路徑 */
+ text-decoration: none;                          /* 選單文字超連結無底線 */
+ float: left;                                    /* 區塊漂浮位置靠左 */
+ padding: 0px 0px 0px 4px;                       /* 上下左右內距間距設定 */
+ text-decoration: none;                          /* 選單文字超連結無底線 */
+}
+#navigation a span {
+ background: url('NavigationImage/button18b.gif') no-repeat right top;  /* 主選單右方按鈕背景圖檔路徑 */
+ color: #373737;                                 /* 主選單文字色彩 */
+ float: left;                                    /* 區塊漂浮位置靠左 */
+ display: block;                                 /* 顯示形式 */
+ padding: 7px 10px 2px 6px;                      /* 上下左右內距間距設定 */
+}
+#navigation ul {
+ margin: 0px 0px 0px 0px;                        /* 上下左右邊界間距設定 */
+ padding: 10px 10px 0px 50px;                    /* 上下左右內距間距設定 */
+ list-style: none;                               /* 不出現項目符號 */
+}
+#navigation li {
+ display: inline;                                /* 顯示形式 */
+}
+#navigation a:hover {
+ background-position: 0% -42px;                  /* 主選單按鈕背景圖檔位置設定 */
+ text-decoration: underline;                     /* 選單文字當滑鼠移至時的超連結有底線 */
+}
+#navigation a:hover span {
+ background-position: 100% -42px;                /* 主選單按鈕背景圖檔位置設定 */
+ color: #000000;                                 /* 滑鼠移至主選單時的文字色彩 */
+}
+#navigation #current a {
+ background-position: 0% -42px;                  /* 主選單按鈕背景圖檔位置設定 */
+}
+#navigation #current a span {
+ background-position: 100% -42px;                /* 主選單按鈕背景圖檔位置設定 */
+}
+#navigation a span {float: none;}                /* 對舊版瀏覽器或Mac瀏覽器所做相容修正 */
+
+
+/* 左方區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#left {
+ float: left;                                   /* 區塊漂浮位置靠左 */
+ position: relative;                            /* 相鄰定位語法請勿修改或稍除 */
+ word-wrap: break-word;                         /* 英文數字自動換行，並可修正連續字母或數字會破壞版面問題(會自動強迫斷行)，本設定僅對於Internet Explorer瀏覽器有作用 */
+ word-break: normal;                            /* 英文單字自動避頭尾，完整的英文單字若位置不足會自動折到下一行 */
+ width: 200px;                                  /* 此區塊寬度設定 */
+ margin-left: -200px;                           /* 此區塊負數位置定位設定 */
+ font-size: 11pt;                               /* 文字大小設定 */
+ font-weight: 400;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+}
+#left p {
+ margin: 10px 10px 10px 10px;                   /* 文字或表格與與此區塊上、下、左、右間距設定 */
+}
+#left-hold {     
+ margin: 0;                                     /* 調整會影響左方區域位置 */
+ width: 100%;                                   /* 調整會影響左方區域位置 */
+}
+.left a:link {
+color : #00509F;                                /* 尚未點選過的超連結色彩 */
+text-decoration : underline;                    /* 當滑鼠移至時的超連結有底線 */                   
+}
+.left a:visited {color: #00509F;}               /* 已經點選過的超連結色彩 */
+.left a:hover {
+ color: #002F5E;                                /* 當滑鼠移到超連結上的色彩 */
+ text-decoration: underline;                    /* 當滑鼠移至時的超連結有底線 */
+}
+.left a:active {color: #002F5E;}                /* 當滑鼠正點選超連結時的色彩 */
+
+
+/* 中間主內容區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#content {
+ background-color: #78FF9C;                     /* 中間主內容區塊背景色彩設定 */
+ background-image: url();                       /* 整個中間區域背景圖檔設定，若需要左方區塊與中間主內容區塊有材質圖檔背景，請在()內填上圖檔名稱與路徑 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 300;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ color: #333333;                                /* 文字色彩 */
+ width: 100%;                                   /* 中間主內容區塊寬度百分比設定(調整會影響右方區域位置) */
+ float: left;                                   /* 右方區塊位置定位設定 */
+ position: relative;                            /* 相鄰定位語法請勿修改或稍除 */
+ margin: 0px -3px 0px -2px;                     /* 調整會影響右方區域位置 */
+ word-wrap: break-word;                         /* 英文數字自動換行，並可修正連續字母或數字會破壞版面問題(會自動強迫斷行)，本設定僅對於Internet Explorer瀏覽器有作用 */
+ word-break: normal;                            /* 英文單字自動避頭尾，完整的英文單字若位置不足會自動折到下一行 */
+ margin-left: auto;                             /* 此區域左方自動對齊置中設定 */
+ margin-right: auto;                            /* 此區域右方自動對齊置中設定 */
+}
+.content a:link {color: #008800;}               /* 尚未點選過的超連結色彩 */
+.content a:visited {color: #008800;}            /* 已經點選過的超連結色彩 */
+.content a:hover {color: #553900;}              /* 當滑鼠移到超連結上的色彩 */
+.content a:active {color: #553900;}             /* 當滑鼠正點選超連結時的色彩 */
+#content p {
+ margin: 2px 2px 2px 2px;                       /* 文字或表格與與此區塊上、下、左、右間距設定 */
+}
+#content-1 {                                    /* 實際內文區塊1 */
+ width: 96%;                                    /* 此區塊寬度百分比設定 */
+ text-align: left;                              /* 此區塊內容對齊設定 */
+ word-wrap: break-word;                         /* 英文數字自動換行，並可修正連續字母或數字會破壞版面問題(會自動強迫斷行)，本設定僅對於Internet Explorer瀏覽器有作用 */
+ word-break: normal;                            /* 英文單字自動避頭尾，完整的英文單字若位置不足會自動折到下一行 */
+}
+.content-tb1 {                                  /* 此區表格樣式1設定 */
+ border:1px #D6DDE6;                            /* 框線寬度與樣式色彩設定 */
+ background-color: #F9F9F9;                     /* 表格背景色彩設定 */
+ border-collapse: collapse;                     /* 摺疊表格框線設定 */
+}
+.content-tb1 th {                               /* 此區表格樣式1的標題列設定 */
+ color: #274061;                                /* 標題列文字色彩 */
+ text-align: center;                            /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 標題列文字大小設定 */
+ font-weight: 600;                              /* 標題列文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ background-color: #BCBCBC;                     /* 標題列背景色彩 */
+ border: 1px solid #828282;                     /* 此區塊外框線條色彩設定 */
+}
+.content-tb1 td {                               /* 此區表格樣式1的儲存格設定 */
+ border: 1px solid #C8D1DD;	                    /* 此區塊外框線條色彩設定 */
+ padding: 4px;                                  /* 內距間距設定 */
+ text-align: left;                              /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+}
+.content-tb1 tr:hover {
+ background-color: #B0E6FF;                     /* 此區表格樣式1當滑鼠移至一般列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb1 tr.altrow:hover {
+ background-color: #B0E6FF;                     /* 此區表格樣式1當滑鼠移至不同列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb1 tr.altrow {                        /* 此區表格樣式1不同列的色彩設定 */
+ background-color: #DFE7F2;                     /* 背景色彩設定 */
+}
+
+.content-tb2 {                                  /* 此區表格樣式2設定 */
+ border:1px #D6DDE6;                            /* 框線寬度與樣式色彩設定 */
+ background-color: #F9F9F9;                     /* 表格背景色彩設定 */
+ border-collapse: collapse;                     /* 摺疊表格框線設定 */
+}
+.content-tb2 th {                               /* 此區表格樣式2的標題列設定 */
+ color: #274061;                                /* 標題列文字色彩 */
+ text-align: left;                              /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 標題列文字大小設定 */
+ font-weight: 600;                              /* 標題列文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ background-color: #BCBCBC;                     /* 標題列背景色彩 */
+ border: 1px solid #828282;                     /* 此區塊外框線條色彩設定 */
+}
+.content-tb2 td {                               /* 此區表格樣式2的儲存格設定 */
+ border: 1px solid #C8D1DD;	                    /* 此區塊外框線條色彩設定 */
+ padding: 4px;                                  /* 內距間距設定 */
+ text-align: left;                              /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+}
+.content-tb2 tr:hover {
+ background-color: #B0E6FF;                     /* 此區表格樣式2當滑鼠移至一般列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb2 tr.altrow:hover {
+ background-color: #B0E6FF;                     /* 此區表格樣式2當滑鼠移至不同列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb2 tr.altrow {                        /* 此區表格樣式2不同列的色彩設定 */
+ background-color: #DFE7F2;                     /* 背景色彩設定 */
+}
+
+.content-tb3 {                                  /* 此區表格樣式3設定 */
+ border: 1px solid #669999;                     /* 框線寬度與樣式色彩設定 */
+ background-color: #FFFFFF;                     /* 表格背景色彩設定 */;
+}
+.content-tb3 th {                               /* 此區表格樣式3的標題列設定 */
+ color: #274061;                                /* 標題列文字色彩 */
+ text-align: center;                            /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 標題列文字大小設定 */
+ font-weight: 600;                              /* 標題列文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ background-color: #DFE7F2;                     /* 標題列背景色彩 */
+}
+.content-tb3 td {                               /* 此區表格樣式3的儲存格設定 */
+ border: 1px solid #C8D1DD;	                    /* 此區塊外框線條色彩設定 */
+ padding: 4px;                                  /* 內距間距設定 */
+ text-align: left;                              /* 此儲存格內容對齊設定 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+}
+.content-tb3 tr:hover {
+ background-color: #FFFFD9;                     /* 此區表格樣式3當滑鼠移至一般列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb3 tr.altrow:hover {
+ background-color: #FFFFD9;                     /* 此區表格樣式3當滑鼠移至不同列時變換的背景色彩設定，此功能需要使用IE7.0版本以上或Firefox瀏覽器觀看方可生效 */
+}
+.content-tb3 tr.altrow {                        /* 此區表格樣3不同列的色彩設定 */
+ background-color: #F7F7F7;                     /* 背景色彩設定 */
+}
+
+#position-1 {                                   /* 目前所在位置列區塊 */
+ width: 98%;                                    /* 本區塊寬度百分比設定 */
+ margin-left: auto;                             /* 此區塊左方自動對齊置中設定 */
+ margin-right: auto;                            /* 此區塊右方自動對齊置中設定 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ height: 15px;                                  /* 本區塊高度像素設定 */ 
+ margin-top: 5px;                               /* 此區塊與上方間距設定 */
+ margin-left: auto;                             /* 此區塊左方自動對齊置中設定 */
+ margin-right: auto;                            /* 此區塊右方自動對齊置中設定 */
+}
+#position-1 img {
+vertical-align: middle;                         /* 目前所在位置列區塊圖檔對齊方式 */
+}
+.position-1 {text-align: left;}                 /* 此區塊內容對齊方式 */
+.position-1 a:link {
+color : #333333;                                /* 尚未點選過的超連結色彩 */
+text-decoration : none;                         /* 文字超連結無底線 */
+}
+.position-1 a:visited {color: #333333;}         /* 已經點選過的超連結色彩 */
+.position-1 a:hover {
+ color: #0066CC;                                /* 當滑鼠移到超連結上的色彩 */
+ text-decoration: underline;                    /* 當滑鼠移至時的超連結有底線 */
+}
+.position-1 a:active {color: #0066CC;}          /* 當滑鼠正點選超連結時的色彩 */
+
+#position-2 {                                   /* 特殊功能列區塊  */
+ width: 98%;                                    /* 本區塊寬度百分比設定 */
+ font-size: 10pt;                               /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+ height: 28px;                                  /* 本區塊高度像素設定 */ 
+ margin-top: 0px;                               /* 此區塊與上方間距設定 */
+}
+#position-2 img {
+vertical-align: middle;                         /* 特殊功能列區塊圖檔對齊方式 */
+}
+.position-2 {text-align: right;}                /* 此區塊內容對齊方式 */
+.position-2 a:link {                            /* 當滑鼠正點選超連結時的色彩 */
+ color : #6600CC;                               /* 尚未點選過的超連結色彩 */
+ text-decoration : none;                        /* 文字超連結無底線 */
+}
+.position-2 a:visited {color: #6600CC;}         /* 已經點選過的超連結色彩 */
+.position-2 a:hover {
+ color: #0066CC;                                /* 當滑鼠移到超連結上的色彩 */
+ text-decoration: underline;                    /* 文字當滑鼠移至時的超連結有底線 */
+}
+.position-2 a:active {color: #0066CC;}          /* 當滑鼠正點選超連結時的色彩 */
+
+#paging {                                       /* 分頁功能列區塊 */
+ height: 36px;                                  /* 本區塊高度像素設定 */ 
+ margin-top: 5px;                               /* 此區塊與上方間距設定 */
+ margin-left: auto;                             /* 此區塊左方自動對齊置中設定 */
+ margin-right: auto;                            /* 此區塊右方自動對齊置中設定 */
+ font-size: 8pt;                                /* 文字大小設定 */
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+}
+#paging select {font-size: 8pt;}                /* 下拉式選單內文字大小設定 */
+#paging img {
+ border-width: 0;                               /* 本區塊內圖檔外寬線設定 */
+ vertical-align: text-bottom;                   /* 本區塊內圖檔對齊設定 */
+}
+
+#content-2 {                                    /* 實際內文區塊2(預備區塊暫不作用) */
+ width: 96%;                                    /* 此區塊寬度百分比設定 */
+ text-align: left;                              /* 此區塊內容對齊設定 */
+ word-break:break-all;                          /* 可修正連續字母或數字會破壞版面問題，但若不希望英文單字被強迫斷行，則請取消此段語法，本設定僅對於Internet Explorer瀏覽器有作用 */
+}
+
+
+/* 下方區塊設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+#footer {
+ width: 100%;                                    /* 下方區塊寬度設定 */
+ height: 50px                                    /* 下方區塊高度設定 */
+ border-top: 1px dotted #B1B1B1;                 /* 此區塊的上方虛線線條與色彩設定 */
+ background-color: #F4F4F4;                      /* 此區塊背景色彩設定，如需要透明背景請輸入transparent */
+ background-image: url();                        /* 此區塊背景圖檔設定，有需要請在()內填上圖檔名稱與路徑 */
+ font-size: 10pt;                                /* 文字大小設定 */
+ font-weight: 400;                               /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+ color: #333333;                                 /* 文字色彩 */
+ text-align: center;                             /* 文字置中對齊 */
+}
+#footer p { margin: 10px 10px 10px 10px; }       /* 文字或表格與與此區塊上、下、左、右間距設定 */
+.footer a:link {color: #008800;}                 /* 一般超連結的色彩 */
+.footer a:visited {color: #008800;}              /* 參觀過超連結的色彩 */
+.footer a:hover {color: #553900;}                /* 當滑鼠移到超連結上的色彩 */
+.footer a:active {color: #553900;}               /* 當滑鼠正在按下點選超連結的色彩 */
+
+#webdesign {
+ font-size: 10pt;                                /* 文字大小設定 */
+ font-weight: 400;                               /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */
+}
+.webdesign a:link {color: #008800;}              /* 一般超連結的色彩 */
+.webdesign a:visited {color: #008800;}           /* 參觀過超連結的色彩 */
+.webdesign a:hover {color: #553900;}             /* 當滑鼠移到超連結上的色彩 */
+.webdesign a:active {color: #553900;}            /* 當滑鼠正在按下點選超連結的色彩 */
+
+
+/* 表單內容樣式設定修改
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+textarea {                       /* 預設表單樣式 */
+ padding-top: 4px;
+ color: #696969;
+ background-color: #F1F1ED;                     /* 背景色彩設定 */
+ border-style: solid;                           /* 框線種類設定，solid實線、double雙線、dotted點線、dashed虛線、inset內凹線、outset外凸線、groove部分內凹、right部分外凸、hidden或none無框線 */
+ border-width: 1px;                             /* 框線粗細設定 */
+ border-color: #AAAA94 #DFDFD6 #DFDFD6 #AAAA94; /* 上下左右框線色彩設定 */
+}
+select {                       /* 預設表單樣式 */
+ padding-top: 4px;
+ color: #696969;
+ background-color: #F1F1ED;                     /* 背景色彩設定 */
+ border-style: solid;                           /* 框線種類設定，solid實線、double雙線、dotted點線、dashed虛線、inset內凹線、outset外凸線、groove部分內凹、right部分外凸、hidden或none無框線 */
+ border-width: 1px;                             /* 框線粗細設定 */
+ border-color: #AAAA94 #DFDFD6 #DFDFD6 #AAAA94; /* 上下左右框線色彩設定 */
+}
+input {                       /* 預設表單樣式 */
+ padding-top: 4px;
+ color: #696969;
+ background-color: #F1F1ED;                     /* 背景色彩設定 */
+ border-style: solid;                           /* 框線種類設定，solid實線、double雙線、dotted點線、dashed虛線、inset內凹線、outset外凸線、groove部分內凹、right部分外凸、hidden或none無框線 */
+ border-width: 1px;                             /* 框線粗細設定 */
+ border-color: #AAAA94 #DFDFD6 #DFDFD6 #AAAA94; /* 上下左右框線色彩設定 */
+}
+input.sty1 {                                    /* 表單樣式1，若有部分表單內容不願意按照預設表單樣式，可以用此來清除恢復原本樣式 */
+ border-style: none;                            /* 框線種類設定 */
+ color: #000000;                                /* 文字色彩設定 */
+ background-color: transparent;                 /* 背景色彩設定為透明 */
+}
+input.sty2 {                                    /* 表單樣式2，按鈕設定 */
+ font-size: 8pt;                                /* 文字大小設定 */ 
+ font-weight: 300;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+ color: #FFFFFF;                                /* 文字色彩設定 */
+ padding-top: 4px;                              /* 上方內距間距設定 */
+ background-color: #00468C;                     /* 背景色彩設定 */
+ border:2px double;
+ border-color: #0076EC #002C57 #002C57 #0076EC;/* 上下左右框線色彩設定 */
+}
+input.sty2:hover {                              /* 表單樣式2，滑鼠移到按鈕上時的設定 */
+ font-size: 8pt;                                /* 文字大小設定 */ 
+ font-weight: 300;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+ color: #FFFF00;                                /* 文字色彩設定 */
+ padding-top: 4px;                              /* 上方內距間距設定 */
+ background-color: #00468C;                     /* 背景色彩設定 */
+ border:2px double;                             /* 框線設定 */
+ border-color: #002C57 #0076EC #0076EC #002C57; /* 上下左右框線色彩設定 */
+}
+
+
+/* 其他設定
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.clear {
+ clear: both;                                   /* 加上此段才能使非IE瀏覽器觀看時不會發生排版顯示錯誤 */
+}
+hr {
+border: 1px dashed #CCCCCC;                     /* 預設水平線樣式 */
+}
+.explain1 {                                     /* 說明文字樣式1 */
+ font-size: 8pt;                                /* 文字大小設定 */ 
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */ 
+ color: #FFFF00;                                /* 文字色彩設定 */ 
+}
+.explain2 {                                     /* 說明文字樣式2 */
+ font-size: 8pt;                                /* 文字大小設定 */;
+ font-weight: 200;                              /* 文字粗細設定，參數可由100~900做選擇，數值越大越粗 */;
+ color: #EA8C00;                                /* 文字色彩設定 */
+}
+.imgborder {border-width: 0px;}                 /* 當圖片有超連結時將邊框線設為0 */
+
+fieldset {                                      /* 群組方塊樣式設定 */
+border: 3px double #808080;
+padding: 2px;
+}
+legend {                                        /* 群組方塊標題文字設定 */
+font-family: Arial;
+font-size: 11pt;
+font-weight: 700;
+color: #0033CC;
+}
+
+.explain1 {                                     /* 註解一文字設定 */
+ color: #996633;
+ font-family: Arial;
+ font-size: 9pt;
+}
+
+-->

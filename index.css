@@ -1,0 +1,219 @@
+@font-face {
+  font-family: "LXGWWenKaiMonoTC";
+  src: url("fonts/LXGWWenKaiMonoTC-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html body {
+  /* 根據瀏覽器的預設文字大小設定相對值 */
+  font-size: 100%;
+  /* 只能放在這邊 header */
+  /* 內容與邊框之間的空間 向內收縮多少 */
+  padding: 0px;
+  /* 四周是否留白 */
+  margin: 0px;
+}
+
+header {
+  display: flex; /* 使用flexbox佈局 */
+  justify-content: space-between; /* 讓內容在水平方向上兩端對齊 */
+  align-items: center; /* 垂直置中 */
+  padding: 0 30px; /* vertical horizontal */
+  background-color: #5d5d5d;
+}
+
+.header-title {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex; /* 使用flexbox佈局使項目水平排列 */
+  gap: 30px; /* 項目之間的間鉅 */
+  list-style-type: none; /* 移除預設的列表樣式 */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center; /* 垂直置中 */
+}
+
+body {
+  background-color: #848484;
+}
+
+main {
+  display: flex;
+  margin-top: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.picture img {
+  width: 200px;
+  height: 100px;
+}
+
+.details {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.job_container {
+  margin-top: 20px;
+  width: 50vw;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.job_item {
+  padding: 50px;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 10px;
+}
+
+.carousel-item {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.carousel-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+.support {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.platform {
+  font-size: 24px;
+}
+
+.contact-table {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.contact-table td {
+  padding: 10px;
+}
+
+.form-table {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  /* 半透明 */
+  background: rgb(255, 255, 255, 0.5);
+  /* 邊框 */
+  border: 1px #fff solid;
+  /* 圓角 */
+  border-radius: 5px;
+  /* 間距 */
+  padding: 10px;
+  font-size: 1.25rem;
+}
+
+textarea {
+  width: 100%;
+  max-width: 480px;
+  height: 6rem;
+}
+
+.form-table input[type="submit"] {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  align-self: center;
+}
+
+aside button {
+  position: fixed; /* 固定位置 */
+  right: 20px; /* 距離右邊20px */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* 游標移到按鈕上 改變游標圖案 */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#ScrollToTop {
+  bottom: 60px;
+}
+
+#ScrollToBottom {
+  bottom: 20px;
+}

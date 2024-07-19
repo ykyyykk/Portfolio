@@ -1,0 +1,1 @@
+<a href="mailto:jerry@webok.tw?subject=Call Me&cc=eyeshop.jerry@gmail.com&bcc=weboktw@hotmail.com&body=Hello">寫Mail給我</a>

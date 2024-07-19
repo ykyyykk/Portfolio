@@ -1,0 +1,145 @@
+<!-- 根據哪種版本的html(html5)編寫而成的 -->
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <!--語系 繁體中文-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Louise汪世傑" />
+    <meta name="description" content="搜尋優化" />
+    <title>汪世傑的作品集</title>
+    <!-- 將CSS載入 -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <!-- 主要內容的區塊 -->
+  <body>
+    <!-- 頁首的區塊 -->
+    <header>
+      <a href="index.html" class="header-title">汪世傑作品集</a>
+      <nav>
+        <ul>
+          <li><a href="about.html">自我介紹</a></li>
+          <li><a href="portfolio.html">作品集</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- 頭版的區塊 -->
+    <main>
+      <div class="profile">
+        <div class="picture">
+          <img src="image/avatar.png" alt="大頭貼" />
+        </div>
+
+        <div class="details">
+          <div>姓名：汪世傑</div>
+          <div>學業：桃園農工 造園科 畢業</div>
+          <div>生日：1998年6月27日</div>
+        </div>
+      </div>
+
+      <div class="job_container">
+        <!-- 在這裡可以放置捲動區域的內容 -->
+        <div class="job_item">
+          <div class="company_name">公司名稱：村宏室內裝修</div>
+          <div class="job_title">職位：師傅</div>
+          <div class="senioirty">年資：2022/9~2023/10 1年2個月</div>
+        </div>
+
+        <div class="job_item">
+          <div class="company_name">公司名稱：奧奇盟科技</div>
+          <div class="job_title">職位：全端遊戲程式設計</div>
+          <div class="senioirty">年資：2021/8~2021/9 2個月</div>
+        </div>
+
+        <div class="job_item">
+          <div class="company_name">公司名稱：曉兔科技</div>
+          <div class="job_title">職位：前端端遊戲程式設計</div>
+          <div class="senioirty">年資：2021/1~2021/7 7個月</div>
+        </div>
+
+        <div class="job_item">
+          <div class="company_name">公司名稱：宏國室內裝修</div>
+          <div class="job_title">職位：學徒</div>
+          <div class="senioirty">年資：2017/8~2020/6 2年11個月</div>
+        </div>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <div class="carousel-title">逢魔之時</div>
+          <div class="carousel-image">
+            <button class="arrow left-arrow" onclick="previousImage(0)">
+              &#10094;
+            </button>
+            <img id="carousel-image-0" src="/image/1.jpg" alt="作品圖片" />
+            <button class="arrow right-arrow" onclick="nextImage(0)">
+              &#10095;
+            </button>
+          </div>
+          <div class="support">支援平台</div>
+          <div class="platforms">
+            <div class="platform">◆</div>
+            <div class="platform">◆</div>
+            <div class="platform">◆</div>
+            <div class="platform">◆</div>
+          </div>
+        </div>
+        <script src="firstgame.js"></script>
+      </div>
+
+      <table class="contact-table">
+        <tr>
+          <td><img src="image/line.png" alt="line" /></td>
+          <td>0950074430</td>
+        </tr>
+
+        <tr>
+          <td><img src="image/gmail.png" alt="gmail" /></td>
+          <td>louise87276@gmail.com</td>
+        </tr>
+      </table>
+
+      <table class="form-table">
+        <tr>
+          <td>
+            <label>姓名</label>
+            <!-- placeholder = 提示字 -->
+          </td>
+          <td>
+            <input type="text" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>電子郵件</label>
+          </td>
+          <td>
+            <input type="email" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>詢問內容</label>
+          </td>
+          <td>
+            <textarea id="message" name="your-message"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <!-- value直接寫在button上面 發送數據到action指定的URL -->
+            <input type="submit" class="button" value="送出" />
+          </td>
+        </tr>
+      </table>
+    </main>
+
+    <aside>
+      <button id="ScrollToTop">Scroll To Top</button>
+      <button id="ScrollToBottom">Scroll To Bottom</button>
+    </aside>
+    <script src="scrollButton.js"></script>
+  </body>
+</html>

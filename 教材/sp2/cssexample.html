@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>預設連結色彩與標籤、id、class繼承觀念範例</title>
+    <style type="text/css">
+      *span {
+        color: #808080;
+      }
+
+      /* 預設 */
+      a:link {
+        color: #6600cc;
+      }
+      a:visited {
+        color: #6600cc;
+      }
+      a:hover {
+        color: #6600cc;
+      }
+      a:active {
+        color: #6600cc;
+      }
+
+      /* 標籤 */
+      p a:link {
+        color: #ff66ff;
+      }
+      p a:visited {
+        color: #008080;
+      }
+      p a:hover {
+        color: #ff00ff;
+      }
+      p a:active {
+        color: #800000;
+      }
+
+      /* id */
+      #id-color a:link {
+        color: #ff9900;
+      }
+      #id-color a:visited {
+        color: #ff9900;
+      }
+      #id-color a:hover {
+        color: #cc3300;
+      }
+      #id-color a:active {
+        color: #ff9900;
+      }
+
+      /* id span */
+      #id-color span a:link {
+        color: #0066ff;
+      }
+      #id-color span a:visited {
+        color: #0066ff;
+      }
+      #id-color span a:hover {
+        color: #0066ff;
+      }
+      #id-color span a:active {
+        color: #0066ff;
+      }
+
+      /* class */
+      .cl-color a:link {
+        color: #ff0000;
+      }
+      .cl-color a:visited {
+        color: #ff0000;
+      }
+      .cl-color a:hover {
+        color: #ff0000;
+      }
+      .cl-color a:active {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+
+  <body>
+    預設測試中文<a href="#1">測試中文</a>測試中文<a href="#1">測試中文</a
+    >測試中文測試中文
+    <hr />
+
+    <p>
+      標籤測試中文<a href="#1">測試中文</a>測試中文<a href="#1">測試中文</a
+      >測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文
+    </p>
+
+    <hr />
+    <div id="id-color">
+      id測試中文<a href="#1">測試中文</a>測試中文測試中文<span
+        ><a href="#1">測試中文</a>測試中文</span
+      >測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文測試中文
+    </div>
+    <hr />
+
+    <br />
+    <span class="cl-color"
+      >測試中文<a href="#1">測試中文</a>測試中文<a href="#1">測試中文</a
+      >測試中文測試中文測試中文</span
+    >
+    <p>&nbsp;</p>
+  </body>
+</html>
