@@ -1,7 +1,0 @@
-CSS3的新單位vh、vw
-vh、vw在使用上與百分比%很相似，vh代表view height，指的是螢幕可視範圍高度的百分比，而vw則代表view width，是指螢幕可視範圍寬度的百分比，它是基於viewport寬度做百分比伸縮的單位。
-vmin：寬度或高度較小值的百分比
-vmax：寬度或高度較大值的百分比
-
-rem是新的文字單位，他和em用法類似，但是他不會繼承，只會受最根部的單位影響，html的font-size
-font-size:1.4rem

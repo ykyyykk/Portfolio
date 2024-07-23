@@ -1,8 +1,0 @@
-﻿<html>
-<head>
-<title>HomePage測試一</title>
-</head>
-<body>
-  <h2>我的HomePage</h2>
-</body>
-</html>
