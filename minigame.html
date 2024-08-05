@@ -19,27 +19,47 @@
     <script src="js//minigame.js"></script>
   </head>
 
-  <body class="d-flex justify-content-center align-items-center">
-    <div id="consecutive_win_count_txt"></div>
-    <div id="player_side" class="">
-      <div id="player_health_txt">10/10</div>
-      <div id="player_energy_txt">3</div>
-      <div id="player_btn_group">
-        <button id="attack_btn" class="btn btn-primary">Attack</button>
-        <button id="conuterattack_btn" class="btn btn-primary">
-          CounterAttack
-        </button>
-        <button id="recover_btn" class="btn btn-primary">Recover</button>
+  <body>
+    <div class="container">
+      <div id="enemy_side" class="row">
+        <div id="enemy_health_txt">10</div>
+        <div id="enemy_energy_txt">3</div>
       </div>
-    </div>
 
-    <div id="enemy_side" class="">
-      <div id="enemy_health_txt">10/10</div>
-      <div id="enemy_energy_txt">3</div>
-    </div>
+      <div id="player_side" class="row">
+        <div id="player_health_txt">10</div>
+        <div id="player_energy_txt">3</div>
+        <div id="consecutive_win_count_txt"></div>
+        <div id="player_btn_group" class="d-flex">
+          <div id="attack_btn" class="card col">
+            <div class="card-body rounded" role="button">
+              <h5 class="card-title">攻擊</h5>
+              <p class="card-text">消耗aa</p>
+            </div>
+          </div>
 
-    <div id="history_log"></div>
-    <button id="next_game_btn" class="btn btn-primary">下一場</button>
-    <button id="reset_record_btn" class="btn btn-primary">清除紀錄</button>
+          <div id="conuterattack_btn" class="card col">
+            <div class="card-body rounded" role="button">
+              <h5 class="card-title">反擊</h5>
+              <p class="card-text">消耗aa</p>
+            </div>
+          </div>
+
+          <div id="recover_btn" class="card col">
+            <div class="card-body rounded" role="button">
+              <h5 class="card-title">回復</h5>
+              <p class="card-text">消耗aa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row gap-2 justify-content-evenly">
+        <button id="next_game_btn" class="btn btn-primary col">下一場</button>
+        <button id="reset_record_btn" class="btn btn-primary col">
+          清除紀錄
+        </button>
+      </div>
+      <div id="history_log"></div>
+    </div>
   </body>
 </html>

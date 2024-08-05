@@ -292,3 +292,13 @@ function saveResult() {
   localStorage.setItem("player_energy", player_energy);
   localStorage.setItem("consecutiveWinCount", consecutiveWinCount);
 }
+
+function setDescription() {
+  const attack_btn_info = document.querySelector("#attack_btn .card-text");
+  const conuterattack_btn_info = document.querySelector(
+    "#counterattack_btn .card-text"
+  );
+  const recover_btn_info = document.querySelector("#recover_btn .card-text");
+
+  attack_btn_info.textContent = `消耗`;
+}
