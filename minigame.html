@@ -20,9 +20,10 @@
   </head>
 
   <body class="d-flex justify-content-center align-items-center">
+    <div id="consecutive_win_count_txt"></div>
     <div id="player_side" class="">
-      <div id="player_health">10/10</div>
-      <div id="player_energy">3</div>
+      <div id="player_health_txt">10/10</div>
+      <div id="player_energy_txt">3</div>
       <div id="player_btn_group">
         <button id="attack_btn" class="btn btn-primary">Attack</button>
         <button id="conuterattack_btn" class="btn btn-primary">
@@ -31,5 +32,14 @@
         <button id="recover_btn" class="btn btn-primary">Recover</button>
       </div>
     </div>
+
+    <div id="enemy_side" class="">
+      <div id="enemy_health_txt">10/10</div>
+      <div id="enemy_energy_txt">3</div>
+    </div>
+
+    <div id="history_log"></div>
+    <button id="next_game_btn" class="btn btn-primary">下一場</button>
+    <button id="reset_record_btn" class="btn btn-primary">清除紀錄</button>
   </body>
 </html>
