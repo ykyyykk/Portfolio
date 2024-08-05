@@ -1,9 +1,9 @@
 let images = [
-  "/image/1.jpg",
-  "/image/2.jpg",
-  "/image/3.jpg",
-  "/image/4.jpg",
-  "/image/5.jpg",
+  "image/1.jpg",
+  "image/2.jpg",
+  "image/3.jpg",
+  "image/4.jpg",
+  "image/5.jpg",
 ]; /* ImageURL */
 
 let currentIndex = [0, 0];
@@ -32,5 +32,5 @@ function previousImage(carouselIndex) {
 }
 
 // Initialize the carousel with the first image
-updateImage(0);
-updateImage(1);
+// updateImage(0);
+// updateImage(1);
