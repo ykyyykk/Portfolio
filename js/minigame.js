@@ -1,5 +1,5 @@
 var attack_btn;
-var conuterattack_btn;
+var counterattack_btn;
 var recover_btn;
 var next_game_btn;
 var reset_record_btn;
@@ -11,9 +11,11 @@ var enemy_health_txt;
 var enemy_energy_txt;
 
 var consecutiveWinCount;
+var player_max_health;
 var player_health;
 var player_energy;
 
+var enemy_max_health;
 var enemy_health;
 var enemy_energy;
 
@@ -38,7 +40,7 @@ const default_recover_energy = 2;
 
 document.addEventListener("DOMContentLoaded", () => {
   attack_btn = document.getElementById("attack_btn");
-  conuterattack_btn = document.getElementById("conuterattack_btn");
+  counterattack_btn = document.getElementById("counterattack_btn");
   recover_btn = document.getElementById("recover_btn");
   next_game_btn = document.getElementById("next_game_btn");
   reset_record_btn = document.getElementById("reset_record_btn");
@@ -52,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   history_log = document.getElementById("history_log");
 
   attack_btn.addEventListener("click", attackBtnOnClick);
-  conuterattack_btn.addEventListener("click", counterAttackBtnOnClick);
+  counterattack_btn.addEventListener("click", counterAttackBtnOnClick);
   recover_btn.addEventListener("click", recoverBtnOnClick);
   next_game_btn.addEventListener("click", nextGameBtnOnClick);
   reset_record_btn.addEventListener("click", resetRecordOnClick);
@@ -61,6 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("consecutiveWinCount") == null
       ? 0
       : localStorage.getItem("consecutiveWinCount");
+
+  player_max_health =
+    localStorage.getItem("player_max_health") == null
+      ? default_helath
+      : localStorage.getItem("player_max_health");
 
   player_health =
     localStorage.getItem("player_health") == null
@@ -71,6 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("player_energy") == null
       ? default_energy
       : localStorage.getItem("player_energy");
+
+  enemy_max_health =
+    localStorage.getItem("enemy_max_health") == null
+      ? default_helath
+      : localStorage.getItem("enemy_max_health");
 
   enemy_health =
     localStorage.getItem("enemy_health") == null
@@ -85,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   is_playing = true;
   updateLog("遊戲開始");
   updateInfo();
+  setDescription();
 });
 
 function getRandomAction() {
@@ -126,6 +139,7 @@ function attackBtnOnClick() {
 
 function counterAttackBtnOnClick() {
   if (!is_playing) {
+    console.log(is_playing);
     return;
   }
   if (player_energy < counterattack_cost) {
@@ -155,14 +169,16 @@ function recoverBtnOnClick() {
 
 function checkResult() {
   updateLog(`敵人使用: ${enemy_action}`);
-  if (player_action == "attack" && enemy_action != "counterattack") {
-    enemy_health -= attack_value;
-    updateLog(`敵人受到: ${attack_value} 點傷害 剩餘血量: ${enemy_health}`);
+  if (enemy_action == "attack" && player_action != "counterattack") {
+    player_health =
+      player_health >= attack_value ? player_health - attack_value : 0;
+    updateLog(`玩家受到: ${attack_value} 點傷害 剩餘血量: ${player_health}`);
   }
 
-  if (enemy_action == "attack" && player_action != "counterattack") {
-    player_health -= attack_value;
-    updateLog(`玩家受到: ${attack_value} 點傷害 剩餘血量: ${player_health}`);
+  if (player_action == "attack" && enemy_action != "counterattack") {
+    enemy_health =
+      enemy_health >= attack_value ? enemy_health - attack_value : 0;
+    updateLog(`敵人受到: ${attack_value} 點傷害 剩餘血量: ${enemy_health}`);
   }
 
   if (player_action == "counterattack" && enemy_action == "attack") {
@@ -175,6 +191,7 @@ function checkResult() {
 
   if (enemy_action == "counterattack" && player_action == "attack") {
     player_health -= counterattack_value;
+
     updateLog(`敵人反擊 敵人剩餘血量: ${enemy_health}`);
     updateLog(
       `玩家受到: ${counterattack_value} 點傷害 剩餘血量: ${player_health}`
@@ -218,10 +235,12 @@ function updateInfo() {
   player_energy_txt.innerHTML = `玩家能量: ${player_energy}`;
   enemy_health_txt.innerHTML = `敵人血量: ${enemy_health}`;
   enemy_energy_txt.innerHTML = `敵人能量: ${enemy_energy}`;
+  healthAnimation("player", player_health, player_max_health);
+  healthAnimation("enemy", enemy_health, enemy_max_health);
 
   setButtonStatus(attack_btn, is_playing && player_energy >= attack_cost);
   setButtonStatus(
-    conuterattack_btn,
+    counterattack_btn,
     is_playing && player_energy >= counterattack_cost
   );
   setButtonStatus(recover_btn, is_playing && player_energy >= recover_cost);
@@ -240,19 +259,17 @@ function setButtonStatus(btn, enable) {
   btn.disabled = !enable;
 
   if (enable) {
-    btn.classList.add("btn-primary");
-    btn.classList.remove("btn-secondary");
+    btn.classList.add("text-bg-primary");
+    btn.classList.remove("text-bg-secondary");
     return;
   }
-  btn.classList.remove("btn-primary");
-  btn.classList.add("btn-secondary");
+  btn.classList.remove("text-bg-primary");
+  btn.classList.add("text-bg-secondary");
 }
 
 function nextGameBtnOnClick() {
   updateLog("nextGameOnClick");
   is_playing = true;
-  enemy_health = default_helath;
-  enemy_energy = default_energy;
 
   if (player_health <= 0) {
     consecutiveWinCount = 0;
@@ -260,9 +277,15 @@ function nextGameBtnOnClick() {
     player_energy = default_energy;
   } else {
     consecutiveWinCount++;
+    player_max_health += default_increase_health;
     player_health += default_increase_health;
   }
-
+  if (consecutiveWinCount >= 5) {
+    var multiplier = consecutiveWinCount / 5;
+    enemy_max_health = default_helath + default_helath * multiplier;
+    enemy_health = enemy_max_health;
+    enemy_energy = default_energy;
+  }
   saveResult();
   updateInfo();
   clearLog();
@@ -270,14 +293,18 @@ function nextGameBtnOnClick() {
 
 function resetRecordOnClick() {
   updateLog("resetRecordOnClick");
+  enemy_max_health = default_helath;
   enemy_health = default_helath;
   enemy_energy = default_energy;
+  player_max_health = default_helath;
   player_health = default_helath;
   player_energy = default_energy;
   consecutiveWinCount = 0;
 
+  localStorage.setItem("enemy_max_health", default_helath);
   localStorage.setItem("enemy_health", default_helath);
   localStorage.setItem("enemy_energy", default_energy);
+  localStorage.setItem("player_max_health", default_helath);
   localStorage.setItem("player_health", default_helath);
   localStorage.setItem("player_energy", default_energy);
   localStorage.setItem("consecutiveWinCount", 0);
@@ -286,8 +313,10 @@ function resetRecordOnClick() {
 }
 
 function saveResult() {
+  localStorage.setItem("enemy_max_health", enemy_max_health);
   localStorage.setItem("enemy_health", enemy_health);
   localStorage.setItem("enemy_energy", enemy_energy);
+  localStorage.setItem("player_max_health", player_max_health);
   localStorage.setItem("player_health", player_health);
   localStorage.setItem("player_energy", player_energy);
   localStorage.setItem("consecutiveWinCount", consecutiveWinCount);
@@ -295,10 +324,19 @@ function saveResult() {
 
 function setDescription() {
   const attack_btn_info = document.querySelector("#attack_btn .card-text");
-  const conuterattack_btn_info = document.querySelector(
+  const counterattack_btn_info = document.querySelector(
     "#counterattack_btn .card-text"
   );
   const recover_btn_info = document.querySelector("#recover_btn .card-text");
 
-  attack_btn_info.textContent = `消耗`;
+  attack_btn_info.innerHTML = `消耗 ${attack_cost} 能量 <br> 對敵人造成 ${attack_value} 點傷害`;
+  counterattack_btn_info.innerHTML = `消耗 ${counterattack_cost} 能量 <br> 如果敵人攻擊玩家則不造成任何傷害 且對敵人造成 ${counterattack_value} 點傷害`;
+  recover_btn_info.innerHTML = `消耗 ${recover_cost} 能量 <br> 回復 ${attack_value} 點血量`;
+}
+
+function healthAnimation(side, currenthealth, maxhealth) {
+  const health_text = document.getElementById(`${side}_health_txt`);
+
+  const healthPercentage = (currenthealth / maxhealth) * 100;
+  health_text.style.width = `${healthPercentage}%`;
 }
