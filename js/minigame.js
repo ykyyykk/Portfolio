@@ -39,6 +39,11 @@ const default_energy = 2;
 const default_recover_energy = 2;
 
 document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({
+    duration: 1000,
+    easing: "ease-out-back",
+    once: false,
+  });
   attack_btn = document.getElementById("attack_btn");
   counterattack_btn = document.getElementById("counterattack_btn");
   recover_btn = document.getElementById("recover_btn");
@@ -58,6 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
   recover_btn.addEventListener("click", recoverBtnOnClick);
   next_game_btn.addEventListener("click", nextGameBtnOnClick);
   reset_record_btn.addEventListener("click", resetRecordOnClick);
+
+  // 這裡沒有依靠AOS 拿起動畫
+  attack_btn.addEventListener(
+    "mouseenter",
+    mouseEnter(attack_btn, attack_cost)
+  );
+  attack_btn.addEventListener("mouseleave", mouseLeave);
+  counterattack_btn.addEventListener(
+    "mouseenter",
+    mouseEnter(counterattack_btn, counterattack_cost)
+  );
+  counterattack_btn.addEventListener("mouseleave", mouseLeave);
+  recover_btn.addEventListener(
+    "mouseenter",
+    mouseEnter(recover_btn, recover_cost)
+  );
+  recover_btn.addEventListener("mouseleave", mouseLeave);
 
   consecutiveWinCount =
     localStorage.getItem("consecutiveWinCount") == null
@@ -100,6 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
   updateInfo();
   setDescription();
 });
+
+// 不能用一般的方法 這是閉包
+function mouseEnter(btn, cost) {
+  return function (event) {
+    if (player_energy < cost) {
+      return;
+    }
+    btn.style.transform = "translateY(-30px)";
+  };
+}
+
+function mouseLeave() {
+  this.style.transform = "translateY(0)";
+}
 
 function getRandomAction() {
   const actions = [];

@@ -9,3 +9,21 @@ body {
 #test {
   height: 400px;
 }
+
+/* 為了讓history_log有捲軸 */
+.scrollspy-example {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+#attack_btn {
+  transition: transform 0.2s ease-out;
+}
+
+#counterattack_btn {
+  transition: transform 0.2s ease-out;
+}
+
+#recover_btn {
+  transition: transform 0.2s ease-out;
+}

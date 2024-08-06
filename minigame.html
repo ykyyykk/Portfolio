@@ -18,14 +18,8 @@
     ></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- 需要在aos前面 因為AOS.Init寫在minigame.js -->
     <script src="js//minigame.js"></script>
-
-    <style>
-      .scrollspy-example {
-        height: 200px;
-        overflow-y: scroll;
-      }
-    </style>
   </head>
 
   <body>
@@ -78,6 +72,7 @@
           aria-valuenow="10"
           aria-valuemin="0"
           aria-valuemax="100"
+          data-aos="fade-right"
         >
           <div
             id="player_health_txt"
@@ -93,6 +88,7 @@
           aria-valuenow="10"
           aria-valuemin="0"
           aria-valuemax="100"
+          data-aos="fade-left"
         >
           <div
             id="player_energy_txt"
