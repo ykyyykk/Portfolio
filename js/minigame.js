@@ -168,7 +168,18 @@ function recoverBtnOnClick() {
 }
 
 function checkResult() {
+  // 回復動作要先 這樣才不會永遠打不死
   updateLog(`敵人使用: ${enemy_action}`);
+  if (player_action == "recover") {
+    player_health += recover_value;
+    updateLog(`玩家回復: ${recover_value} 點血量 剩餘血量: ${player_health}`);
+  }
+
+  if (enemy_action == "recover") {
+    enemy_health += recover_value;
+    updateLog(`敵人回復: ${recover_value} 點血量 剩餘血量: ${enemy_health}`);
+  }
+
   if (enemy_action == "attack" && player_action != "counterattack") {
     player_health =
       player_health >= attack_value ? player_health - attack_value : 0;
@@ -196,16 +207,6 @@ function checkResult() {
     updateLog(
       `玩家受到: ${counterattack_value} 點傷害 剩餘血量: ${player_health}`
     );
-  }
-
-  if (player_action == "recover") {
-    player_health += recover_value;
-    updateLog(`玩家回復: ${recover_value} 點血量 剩餘血量: ${player_health}`);
-  }
-
-  if (enemy_action == "recover") {
-    enemy_health += recover_value;
-    updateLog(`敵人回復: ${recover_value} 點血量 剩餘血量: ${enemy_health}`);
   }
 
   player_energy += default_recover_energy;
@@ -280,12 +281,10 @@ function nextGameBtnOnClick() {
     player_max_health += default_increase_health;
     player_health += default_increase_health;
   }
-  if (consecutiveWinCount >= 5) {
-    var multiplier = consecutiveWinCount / 5;
-    enemy_max_health = default_helath + default_helath * multiplier;
-    enemy_health = enemy_max_health;
-    enemy_energy = default_energy;
-  }
+  var multiplier = consecutiveWinCount / 5;
+  enemy_max_health = default_helath + default_helath * multiplier;
+  enemy_health = enemy_max_health;
+  enemy_energy = default_energy;
   saveResult();
   updateInfo();
   clearLog();
