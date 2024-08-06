@@ -22,7 +22,9 @@
     <script src="js//minigame.js"></script>
   </head>
 
-  <body>
+  <!-- min-vh-100 類別設置最小高度為 100% 的視窗高度。 -->
+  <!-- d-flex flex-column 是為了讓最下面的div 可以mb-2 不然因為是最後一個元素所以mb-2沒用 -->
+  <body class="min-vh-100 d-flex flex-column">
     <div id="enemy_side" class="mt-2 d-flex justify-content-center">
       <div
         id="enemy_health_bar"
@@ -127,7 +129,7 @@
       </div>
     </div>
 
-    <div class="mt-2 d-flex justify-content-center gap-2">
+    <div class="mt-auto mb-2 d-flex justify-content-center gap-2">
       <button id="next_game_btn" class="btn col-sm-5 border-black">
         下一場
       </button>
