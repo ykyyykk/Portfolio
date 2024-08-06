@@ -84,37 +84,37 @@ document.addEventListener("DOMContentLoaded", () => {
   consecutiveWinCount =
     localStorage.getItem("consecutiveWinCount") == null
       ? 0
-      : localStorage.getItem("consecutiveWinCount");
+      : +localStorage.getItem("consecutiveWinCount");
 
   player_max_health =
     localStorage.getItem("player_max_health") == null
       ? default_health
-      : localStorage.getItem("player_max_health");
+      : +localStorage.getItem("player_max_health");
 
   player_health =
     localStorage.getItem("player_health") == null
       ? default_health
-      : localStorage.getItem("player_health");
+      : +localStorage.getItem("player_health");
 
   player_energy =
     localStorage.getItem("player_energy") == null
       ? default_energy
-      : localStorage.getItem("player_energy");
+      : +localStorage.getItem("player_energy");
 
   enemy_max_health =
     localStorage.getItem("enemy_max_health") == null
       ? default_health
-      : localStorage.getItem("enemy_max_health");
+      : +localStorage.getItem("enemy_max_health");
 
   enemy_health =
     localStorage.getItem("enemy_health") == null
       ? default_health
-      : localStorage.getItem("enemy_health");
+      : +localStorage.getItem("enemy_health");
 
   enemy_energy =
     localStorage.getItem("enemy_energy") == null
       ? default_energy
-      : localStorage.getItem("enemy_energy");
+      : +localStorage.getItem("enemy_energy");
 
   console.log(enemy_health);
   is_playing = true;
@@ -127,6 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function mouseEnter(btn, cost) {
   return function (event) {
     if (player_energy < cost) {
+      return;
+    }
+    if (!is_playing) {
       return;
     }
     btn.style.transform = "translateY(-30px)";
@@ -274,6 +277,7 @@ function checkResult() {
   }
   player_energy += +default_recover_energy;
   enemy_energy += +default_recover_energy;
+  console.log(enemy_health);
   checkHealth();
   updateInfo();
 }
