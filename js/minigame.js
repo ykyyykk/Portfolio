@@ -300,6 +300,7 @@ function resetRecordOnClick() {
   player_health = default_helath;
   player_energy = default_energy;
   consecutiveWinCount = 0;
+  is_playing = true;
 
   localStorage.setItem("enemy_max_health", default_helath);
   localStorage.setItem("enemy_health", default_helath);
@@ -337,6 +338,6 @@ function setDescription() {
 function healthAnimation(side, currenthealth, maxhealth) {
   const health_text = document.getElementById(`${side}_health_txt`);
 
-  const healthPercentage = (currenthealth / maxhealth) * 100;
+  const healthPercentage = (currenthealth = (currenthealth / maxhealth) * 100);
   health_text.style.width = `${healthPercentage}%`;
 }
