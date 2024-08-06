@@ -16,7 +16,16 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js//minigame.js"></script>
+
+    <style>
+      .scrollspy-example {
+        height: 200px;
+        overflow-y: scroll;
+      }
+    </style>
   </head>
 
   <body>
@@ -51,6 +60,15 @@
         ></div>
       </div>
     </div>
+
+    <div
+      id="history_log"
+      data-bs-spy="scroll"
+      data-bs-target="#navbar-example2"
+      data-bs-smooth-scroll="true"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2 mt-5 w-50"
+      tabindex="0"
+    ></div>
 
     <div id="player_side" class="mt-5">
       <div class="mt-2 d-flex justify-content-center">
@@ -97,7 +115,6 @@
             <p class="card-text"></p>
           </div>
         </div>
-
         <div id="counterattack_btn" class="card col-sm-3 border-black me-3">
           <div class="card-body rounded" role="button">
             <h5 class="card-title">反擊</h5>
@@ -125,6 +142,5 @@
         清除紀錄
       </button>
     </div>
-    <div id="history_log"></div>
   </body>
 </html>

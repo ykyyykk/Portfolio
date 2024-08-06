@@ -33,7 +33,7 @@ const attack_cost = 2;
 const counterattack_cost = 3;
 const recover_cost = 1;
 
-const default_helath = 15;
+const default_health = 15;
 const default_increase_health = 10;
 const default_energy = 2;
 const default_recover_energy = 2;
@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   player_max_health =
     localStorage.getItem("player_max_health") == null
-      ? default_helath
+      ? default_health
       : localStorage.getItem("player_max_health");
 
   player_health =
     localStorage.getItem("player_health") == null
-      ? default_helath
+      ? default_health
       : localStorage.getItem("player_health");
 
   player_energy =
@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   enemy_max_health =
     localStorage.getItem("enemy_max_health") == null
-      ? default_helath
+      ? default_health
       : localStorage.getItem("enemy_max_health");
 
   enemy_health =
     localStorage.getItem("enemy_health") == null
-      ? default_helath
+      ? default_health
       : localStorage.getItem("enemy_health");
 
   enemy_energy =
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? default_energy
       : localStorage.getItem("enemy_energy");
 
+  console.log(enemy_health);
   is_playing = true;
   updateLog("遊戲開始");
   updateInfo();
@@ -102,17 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getRandomAction() {
   const actions = [];
+
+  if (enemy_energy >= recover_cost) {
+    actions.push("recover");
+  }
   if (enemy_energy >= attack_cost) {
-    enemy_energy -= attack_cost;
     actions.push("attack");
   }
   if (enemy_energy >= counterattack_cost) {
-    enemy_energy -= counterattack_cost;
     actions.push("counterattack");
-  }
-  if (enemy_energy >= recover_cost) {
-    enemy_energy -= recover_cost;
-    actions.push("recover");
   }
 
   if (actions.length === 0) {
@@ -120,10 +119,26 @@ function getRandomAction() {
   }
 
   const randomIndex = Math.floor(Math.random() * actions.length);
-  return actions[randomIndex];
+  const selectedAction = actions[randomIndex];
+
+  // Decrease the corresponding cost based on the selected action
+  switch (selectedAction) {
+    case "recover":
+      enemy_energy -= recover_cost;
+      break;
+    case "attack":
+      enemy_energy -= attack_cost;
+      break;
+    case "counterattack":
+      enemy_energy -= counterattack_cost;
+      break;
+  }
+
+  return selectedAction;
 }
 
 function attackBtnOnClick() {
+  console.log(enemy_health);
   if (!is_playing) {
     return;
   }
@@ -133,13 +148,14 @@ function attackBtnOnClick() {
   player_energy -= attack_cost;
   player_action = "attack";
   enemy_action = getRandomAction();
+  updateLog(`===========================================`);
   updateLog(`玩家使用: ${player_action}`);
   checkResult();
 }
 
 function counterAttackBtnOnClick() {
+  console.log(enemy_health);
   if (!is_playing) {
-    console.log(is_playing);
     return;
   }
   if (player_energy < counterattack_cost) {
@@ -148,11 +164,13 @@ function counterAttackBtnOnClick() {
   player_energy -= counterattack_cost;
   player_action = "counterattack";
   enemy_action = getRandomAction();
+  updateLog(`===========================================`);
   updateLog(`玩家使用: ${player_action}`);
   checkResult();
 }
 
 function recoverBtnOnClick() {
+  console.log(enemy_health);
   if (!is_playing) {
     return;
   }
@@ -163,37 +181,42 @@ function recoverBtnOnClick() {
   player_energy -= recover_cost;
   player_action = "recover";
   enemy_action = getRandomAction();
+  updateLog(`===========================================`);
   updateLog(`玩家使用: ${player_action}`);
   checkResult();
 }
 
 function checkResult() {
+  console.log(enemy_health);
   // 回復動作要先 這樣才不會永遠打不死
   updateLog(`敵人使用: ${enemy_action}`);
   if (player_action == "recover") {
-    player_health += recover_value;
+    player_health += +recover_value;
     updateLog(`玩家回復: ${recover_value} 點血量 剩餘血量: ${player_health}`);
   }
 
   if (enemy_action == "recover") {
-    enemy_health += recover_value;
+    enemy_health += +recover_value;
     updateLog(`敵人回復: ${recover_value} 點血量 剩餘血量: ${enemy_health}`);
   }
 
   if (enemy_action == "attack" && player_action != "counterattack") {
     player_health =
-      player_health >= attack_value ? player_health - attack_value : 0;
+      player_health >= attack_value ? +player_health - +attack_value : 0;
     updateLog(`玩家受到: ${attack_value} 點傷害 剩餘血量: ${player_health}`);
   }
 
   if (player_action == "attack" && enemy_action != "counterattack") {
     enemy_health =
-      enemy_health >= attack_value ? enemy_health - attack_value : 0;
+      enemy_health >= attack_value ? +enemy_health - +attack_value : 0;
     updateLog(`敵人受到: ${attack_value} 點傷害 剩餘血量: ${enemy_health}`);
   }
 
   if (player_action == "counterattack" && enemy_action == "attack") {
-    enemy_health -= counterattack_value;
+    enemy_health =
+      enemy_health >= counterattack_value
+        ? +enemy_health - +counterattack_value
+        : 0;
     updateLog(`玩家反擊 玩家剩餘血量: ${player_health}`);
     updateLog(
       `敵人受到: ${counterattack_value} 點傷害 剩餘血量: ${enemy_health}`
@@ -201,16 +224,20 @@ function checkResult() {
   }
 
   if (enemy_action == "counterattack" && player_action == "attack") {
-    player_health -= counterattack_value;
-
+    player_health =
+      player_health >= counterattack_value
+        ? +player_health - +counterattack_value
+        : 0;
     updateLog(`敵人反擊 敵人剩餘血量: ${enemy_health}`);
     updateLog(
       `玩家受到: ${counterattack_value} 點傷害 剩餘血量: ${player_health}`
     );
   }
-
-  player_energy += default_recover_energy;
-  enemy_energy += default_recover_energy;
+  if (enemy_action == "counterattack" && player_action == "counterattack") {
+    updateLog(`雙方都使用 反擊 沒有發生任何事`);
+  }
+  player_energy += +default_recover_energy;
+  enemy_energy += +default_recover_energy;
   checkHealth();
   updateInfo();
 }
@@ -232,11 +259,13 @@ function checkHealth() {
 
 function updateInfo() {
   consecutive_win_count_txt.innerHTML = `連續勝利: ${consecutiveWinCount}`;
-  player_health_txt.innerHTML = `玩家血量: ${player_health}`;
+  player_health_txt.innerHTML = `玩家血量: ${player_health} / ${player_max_health}`;
   player_energy_txt.innerHTML = `玩家能量: ${player_energy}`;
-  enemy_health_txt.innerHTML = `敵人血量: ${enemy_health}`;
+  enemy_health_txt.innerHTML = `敵人血量: ${enemy_health} / ${enemy_max_health}`;
   enemy_energy_txt.innerHTML = `敵人能量: ${enemy_energy}`;
   healthAnimation("player", player_health, player_max_health);
+  console.log(enemy_max_health);
+  console.log(enemy_health);
   healthAnimation("enemy", enemy_health, enemy_max_health);
 
   setButtonStatus(attack_btn, is_playing && player_energy >= attack_cost);
@@ -250,6 +279,7 @@ function updateInfo() {
 
 function updateLog(log) {
   history_log.innerHTML += `${log}<br>`;
+  history_log.scrollTop = history_log.scrollHeight;
 }
 
 function clearLog() {
@@ -271,20 +301,22 @@ function setButtonStatus(btn, enable) {
 function nextGameBtnOnClick() {
   updateLog("nextGameOnClick");
   is_playing = true;
-
-  if (player_health <= 0) {
+  // 為了避免 文字 + 數字的情況 變數前面+號 強制數字運算
+  if (+player_health <= 0) {
     consecutiveWinCount = 0;
-    player_health = default_helath;
-    player_energy = default_energy;
+    player_health = +default_health;
+    player_energy = +default_energy;
   } else {
     consecutiveWinCount++;
-    player_max_health += default_increase_health;
-    player_health += default_increase_health;
+    player_max_health = +player_max_health + +default_increase_health;
+    player_health = +player_health + +default_increase_health;
   }
-  var multiplier = consecutiveWinCount / 5;
-  enemy_max_health = default_helath + default_helath * multiplier;
-  enemy_health = enemy_max_health;
-  enemy_energy = default_energy;
+
+  var multiplier = Math.floor(+consecutiveWinCount / 5);
+  enemy_max_health = +default_health + default_increase_health * +multiplier;
+  enemy_health = +enemy_max_health;
+  enemy_energy = +default_energy;
+
   saveResult();
   updateInfo();
   clearLog();
@@ -292,20 +324,20 @@ function nextGameBtnOnClick() {
 
 function resetRecordOnClick() {
   updateLog("resetRecordOnClick");
-  enemy_max_health = default_helath;
-  enemy_health = default_helath;
+  enemy_max_health = default_health;
+  enemy_health = default_health;
   enemy_energy = default_energy;
-  player_max_health = default_helath;
-  player_health = default_helath;
+  player_max_health = default_health;
+  player_health = default_health;
   player_energy = default_energy;
   consecutiveWinCount = 0;
   is_playing = true;
 
-  localStorage.setItem("enemy_max_health", default_helath);
-  localStorage.setItem("enemy_health", default_helath);
+  localStorage.setItem("enemy_max_health", default_health);
+  localStorage.setItem("enemy_health", default_health);
   localStorage.setItem("enemy_energy", default_energy);
-  localStorage.setItem("player_max_health", default_helath);
-  localStorage.setItem("player_health", default_helath);
+  localStorage.setItem("player_max_health", default_health);
+  localStorage.setItem("player_health", default_health);
   localStorage.setItem("player_energy", default_energy);
   localStorage.setItem("consecutiveWinCount", 0);
   updateInfo();
@@ -337,6 +369,11 @@ function setDescription() {
 function healthAnimation(side, currenthealth, maxhealth) {
   const health_text = document.getElementById(`${side}_health_txt`);
 
-  const healthPercentage = (currenthealth = (currenthealth / maxhealth) * 100);
+  const healthPercentage = (currenthealth / maxhealth) * 100;
+  console.log(`currenthealth: ${currenthealth}`);
+  console.log(`maxhealth: ${maxhealth}`);
+  console.log(`healthPercentage: ${healthPercentage}`);
   health_text.style.width = `${healthPercentage}%`;
 }
+
+// 有可能會因為 文字 + 數字 導致數字錯誤
