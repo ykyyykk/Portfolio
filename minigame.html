@@ -18,6 +18,10 @@
     ></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <!-- 需要在aos前面 因為AOS.Init寫在minigame.js -->
     <script src="js//minigame.js"></script>
   </head>
@@ -32,6 +36,7 @@
         aria-valuenow="10"
         aria-valuemin="0"
         aria-valuemax="100"
+        data-aos="fade-right"
       >
         <div
           id="enemy_health_txt"
@@ -47,6 +52,7 @@
         aria-valuenow="10"
         aria-valuemin="0"
         aria-valuemax="100"
+        data-aos="fade-left"
       >
         <div
           id="enemy_energy_txt"
@@ -57,6 +63,9 @@
       </div>
     </div>
 
+    <button>
+      <i class="fa-solid fa-clock-rotate-left min-width"></i>
+    </button>
     <div
       id="history_log"
       data-bs-spy="scroll"
@@ -66,70 +75,65 @@
       tabindex="0"
     ></div>
 
-    <div id="player_side" class="mt-5">
-      <div class="mt-2 d-flex justify-content-center">
-        <div
-          id="player_health_bar"
-          class="progress col-sm-5 h-auto me-3"
-          aria-valuenow="10"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          data-aos="fade-right"
-        >
-          <div
-            id="player_health_txt"
-            class="progress-bar bg-danger overflow-visible text-black fs-5"
-            role="progressbar"
-            style="width: 100%"
-          ></div>
-        </div>
+    <div id="consecutive_win_count_txt" class="mt-auto mb-2 w-mincontent"></div>
 
+    <div id="player_side" class="mb-5 d-flex justify-content-center">
+      <div
+        id="player_health_bar"
+        class="progress col-sm-5 h-auto me-3"
+        aria-valuenow="10"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        data-aos="fade-right"
+      >
         <div
-          id="player_energy_bar"
-          class="progress col-sm-5 h-auto"
-          aria-valuenow="10"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          data-aos="fade-left"
-        >
-          <div
-            id="player_energy_txt"
-            class="progress-bar bg-warning overflow-visible text-black fs-5"
-            role="progressbar"
-            style="width: 100%"
-          ></div>
+          id="player_health_txt"
+          class="progress-bar bg-danger overflow-visible text-black fs-5"
+          role="progressbar"
+          style="width: 100%"
+        ></div>
+      </div>
+
+      <div
+        id="player_energy_bar"
+        class="progress col-sm-5 h-auto"
+        aria-valuenow="10"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        data-aos="fade-left"
+      >
+        <div
+          id="player_energy_txt"
+          class="progress-bar bg-warning overflow-visible text-black fs-5"
+          role="progressbar"
+          style="width: 100%"
+        ></div>
+      </div>
+    </div>
+
+    <div id="player_btn_group" class="mb-2 d-flex justify-content-center">
+      <div id="attack_btn" class="card col-sm-3 me-3 border-black">
+        <div class="card-body rounded" role="button">
+          <h5 class="card-title">攻擊</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+      <div id="counterattack_btn" class="card col-sm-3 border-black me-3">
+        <div class="card-body rounded" role="button">
+          <h5 class="card-title">反擊</h5>
+          <p class="card-text"></p>
         </div>
       </div>
 
-      <div id="consecutive_win_count_txt" class="mt-2"></div>
-
-      <div
-        id="player_btn_group"
-        class="d-flex mt-2 border-black justify-content-center"
-      >
-        <div id="attack_btn" class="card col-sm-3 me-3">
-          <div class="card-body rounded" role="button">
-            <h5 class="card-title">攻擊</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-        <div id="counterattack_btn" class="card col-sm-3 border-black me-3">
-          <div class="card-body rounded" role="button">
-            <h5 class="card-title">反擊</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-
-        <div id="recover_btn" class="card col-sm-3 border-black">
-          <div class="card-body rounded" role="button">
-            <h5 class="card-title">回復</h5>
-            <p class="card-text"></p>
-          </div>
+      <div id="recover_btn" class="card col-sm-3 border-black">
+        <div class="card-body rounded" role="button">
+          <h5 class="card-title">回復</h5>
+          <p class="card-text"></p>
         </div>
       </div>
     </div>
 
-    <div class="mt-auto mb-2 d-flex justify-content-center gap-2">
+    <div class="mb-2 d-flex justify-content-center gap-2">
       <button id="next_game_btn" class="btn col-sm-5 border-black">
         下一場
       </button>
