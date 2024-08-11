@@ -97,5 +97,9 @@ function shoot(target) {
     background: "rgba(255, 0, 0, 0)",
     duration: 500,
     easing: "linear",
+    // 動畫中呼叫
+    update: () => {
+      console.log(`${target} shooting`);
+    },
   });
 }
