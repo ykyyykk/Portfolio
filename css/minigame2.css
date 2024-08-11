@@ -1,0 +1,20 @@
+body {
+  position: relative;
+}
+
+#player {
+  position: absolute;
+  /* 為了位置比較好取得 不要從中心 */
+  /* top: 50%; */
+  /* left: 50%; */
+  width: min-content;
+}
+
+#boss {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  width: min-content;
+}

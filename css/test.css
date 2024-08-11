@@ -4,26 +4,8 @@ div {
 
 body {
   border: 1px solid red;
-}
-
-#test {
-  height: 400px;
-}
-
-/* 為了讓history_log有捲軸 */
-.scrollspy-example {
-  height: 200px;
-  overflow-y: scroll;
-}
-
-#attack_btn {
-  transition: transform 0.2s ease-out;
-}
-
-#counterattack_btn {
-  transition: transform 0.2s ease-out;
-}
-
-#recover_btn {
-  transition: transform 0.2s ease-out;
+  /* 不知道為什麼用vh只有一半 */
+  width: 100%;
+  /* 用% 幾乎 = 0 */
+  height: 100vh;
 }
