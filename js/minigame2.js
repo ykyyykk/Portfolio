@@ -3,6 +3,7 @@ var vertical = 0;
 var speed = 10;
 var keys = {};
 var playerPosition = { x: 0, y: 0 };
+var projectiles = [];
 var projectileIndex = 0;
 var shootDirection = "right";
 var windowWidth = 0;
@@ -97,9 +98,17 @@ function shoot(target) {
     background: "rgba(255, 0, 0, 0)",
     duration: 500,
     easing: "linear",
-    // 動畫中呼叫
+    begin: () => {
+      console.log(`begin`);
+    },
     update: () => {
-      console.log(`${target} shooting`);
+      console.log(target);
+      var top = $(target).css("top");
+      var left = $(target).css("left");
+      projectiles[target] = { top: top, left: left };
+      console.log(projectiles[target]);
     },
   });
 }
+
+function detect() {}
