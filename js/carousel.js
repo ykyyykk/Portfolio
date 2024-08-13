@@ -10,8 +10,8 @@ var currentIndex = 0;
 
 function updateImage(carouselIndex) {
   console.log(carouselIndex);
-  /*   document.getElementById("carousel-image-${carouselIndex}").src =
-    images[currentIndex[carouselIndex]]; */
+  // 避免手動選第三張 在按下一張的index不對
+  currentIndex = carouselIndex;
   document.getElementById(`big_img`).src = images[carouselIndex];
 }
 
@@ -27,7 +27,3 @@ function previousImage() {
   currentIndex = currentIndex <= 0 ? 0 : currentIndex;
   updateImage(currentIndex);
 }
-
-// Initialize the carousel with the first image
-// updateImage(0);
-// updateImage(1);
