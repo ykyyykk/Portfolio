@@ -8,7 +8,7 @@
     <meta name="description" content="搜尋優化" />
     <title>汪世傑的作品集</title>
 
-    <script src="libs.js"></script>
+    <script src="js/libs.js"></script>
     <!-- 將CSS載入 -->
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/aisde.css" />
@@ -48,46 +48,95 @@
 
     <main>
       <div
-        class="gradient border border-1 border-warning w-100"
+        class="border border-1 border-warning w-100"
         style="height: calc(100vh - 50px)"
       >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos,
-        ipsa perferendis quidem totam blanditiis. Quibusdam, eum porro accusamus
-        recusandae vitae iusto, perspiciatis nihil eligendi suscipit modi illo
-        commodi provident. Obcaecati autem, impedit necessitatibus ducimus aut
-        voluptates perferendis corrupti explicabo vel saepe enim excepturi ex
-        quos provident expedita iure ab deserunt corporis quisquam fugit nostrum
-        numquam assumenda ea minima. Officiis. Odio distinctio delectus tempore
-        enim odit consequuntur amet! Aliquid, placeat ipsa hic neque itaque eum
-        distinctio, ea tempora aut porro maiores repellat eligendi non molestias
-        obcaecati praesentium animi laudantium eaque! Quae totam eligendi cum in
-        suscipit ipsum mollitia inventore sed qui odio dolorem, sit sapiente
-        exercitationem accusantium! Saepe autem assumenda consequuntur dolor
-        soluta quaerat? Error asperiores magnam non eligendi amet. Doloremque
-        accusantium corrupti ratione, fugit officiis facilis, error a iusto
-        aliquid pariatur dicta, qui explicabo harum saepe ut hic itaque illum
-        est! Ducimus distinctio eaque laborum rerum facilis optio eum?
-        Voluptatibus modi non officiis et ipsum, aliquid sed quidem a, illum
-        quis provident corporis, voluptate vitae perferendis vel ea. Modi,
-        expedita. Officiis corrupti expedita alias maiores enim architecto
-        facilis assumenda. Minima, quas. Iure reprehenderit, et ab unde veniam
-        est? Doloribus itaque quos obcaecati perspiciatis, dignissimos quibusdam
-        necessitatibus expedita quia facere sint molestias reiciendis culpa sed
-        natus a repudiandae provident libero! Eius ducimus pariatur illum harum
-        deserunt sequi aperiam repellat dolorem quod? Accusantium sint nemo
-        dolores labore molestiae laborum repellendus esse molestias beatae,
-        earum voluptatem incidunt, consequuntur ratione, explicabo aut
-        doloremque. Repudiandae distinctio non debitis minus qui laborum
-        perspiciatis quod deserunt! Dolores odio cum explicabo. Debitis, dolore
-        officiis quos a voluptatibus optio reprehenderit accusamus eaque iste
-        corrupti aut dolorum natus quia. Dolores deleniti animi rerum asperiores
-        officiis, possimus fuga vitae modi non alias harum nobis pariatur illum
-        adipisci iusto corporis tenetur ab, exercitationem dolorem temporibus
-        et! Repellendus facere inventore ullam delectus.
-        <!-- 遊戲大圖 -->
-        <img src="" alt="" />
-        <!-- mask -->
-        <img src="" alt="" />
+        <!-- 遊戲背景圖片 -->
+        <img class="w-100 h-auto position-absolute" src="image/2.jpg" />
+
+        <!-- 漸層Mask -->
+        <div
+          class="gradient position-absolute w-100"
+          style="height: calc(100vh - 50px)"
+        ></div>
+
+        <div
+          class="w-50 h-100 container float-end"
+          style="border: 1px solid black"
+        >
+          <!-- 作品大圖 -->
+          <div class="position-relative">
+            <img
+              id="big_img"
+              class="img-fluid rounded col-lg-12 ratio ratio-16x9"
+              src="image/1.jpg"
+              alt="作品圖片"
+            />
+
+            <button
+              class="border border-0 bg-transparent position-absolute text-white top-50 start-0"
+              onclick="previousImage()"
+            >
+              <i class="fa-solid fa-chevron-left fs-1"></i>
+            </button>
+            <button
+              class="border border-0 bg-transparent position-absolute text-white top-50 end-0"
+              onclick="nextImage()"
+            >
+              <i class="fa-solid fa-chevron-right fs-1"></i>
+            </button>
+          </div>
+
+          <!-- 輪播圖片按鈕 -->
+          <div
+            class="d-flex align-content-between position-relative"
+            style="border: 1px solid black"
+          >
+            <img
+              class="h-auto m-1 rounded"
+              style="width: 128px"
+              src="image/1.jpg"
+              alt=""
+            />
+            <img
+              class="h-auto m-1 rounded"
+              style="width: 128px"
+              src="image/2.jpg"
+              alt=""
+            />
+            <img
+              class="h-auto m-1 rounded"
+              style="width: 128px"
+              src="image/3.jpg"
+              alt=""
+            />
+            <img
+              class="h-auto m-1 rounded"
+              style="width: 128px"
+              src="image/4.jpg"
+              alt=""
+            />
+            <img
+              class="h-auto m-1 rounded"
+              style="width: 128px"
+              src="image/5.jpg"
+              alt=""
+            />
+          </div>
+
+          <!-- 介紹文 -->
+          <div class="text-white fs-5 d-block position-relative">
+            <p class="text-start">世間萬物，皆為神靈</p>
+            <p class="text-start ms-5">日本神道，八百萬神</p>
+            <p class="text-start">以日本八百萬神為故事原型的ＡＲＰＧ。</p>
+            <p class="text-start">千萬技能，四散各地</p>
+            <p class="text-start ms-5">囊括依蒨，盡收手心</p>
+            <p class="text-start">探索地圖拿取秘笈，拜師學藝習得技能，</p>
+            <p class="text-start">
+              擊敗Boss掠取能力，蒐集所有技能成為掌握千技之人。
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="profile">
@@ -126,28 +175,6 @@
           <div class="company_name">公司名稱：宏國室內裝修</div>
           <div class="job_title">職位：學徒</div>
           <div class="senioirty">年資：2017/8~2020/6 2年11個月</div>
-        </div>
-      </div>
-
-      <div class="carousel-container">
-        <div class="carousel-item">
-          <div class="carousel-title">逢魔之時</div>
-          <div class="carousel-image">
-            <button class="arrow left-arrow" onclick="previousImage(0)">
-              &#10094;
-            </button>
-            <img id="carousel-image-0" src="image/1.jpg" alt="作品圖片" />
-            <button class="arrow right-arrow" onclick="nextImage(0)">
-              &#10095;
-            </button>
-          </div>
-          <div class="support">支援平台</div>
-          <div class="platforms">
-            <div class="platform">◆</div>
-            <div class="platform">◆</div>
-            <div class="platform">◆</div>
-            <div class="platform">◆</div>
-          </div>
         </div>
       </div>
     </main>

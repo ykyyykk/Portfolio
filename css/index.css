@@ -13,6 +13,8 @@ html body {
   padding: 0px;
   /* 四周是否留白 */
   margin: 0px;
+  /* 限制不能左右滑 不知道為什麼 w-100都會有左右捲軸 */
+  overflow-x: hidden;
 }
 
 body {
@@ -27,8 +29,8 @@ main {
 }
 
 .gradient {
-  -webkit-mask-image: linear-gradient(to right, black, transparent);
-  mask-image: linear-gradient(to right, black, transparent);
+  background-color: black;
+  mask-image: linear-gradient(to right, transparent, black 60%);
 }
 
 .profile {

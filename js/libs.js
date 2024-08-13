@@ -26,3 +26,7 @@ loadJs("https://code.jquery.com/jquery-3.7.1.js");
 loadCSS(
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 );
+
+// Swiper
+// loadCSS("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+// loadJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");

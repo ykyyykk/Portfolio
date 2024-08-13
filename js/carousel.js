@@ -6,29 +6,26 @@ let images = [
   "image/5.jpg",
 ]; /* ImageURL */
 
-let currentIndex = [0, 0];
+var currentIndex = 0;
 
 function updateImage(carouselIndex) {
   console.log(carouselIndex);
-  console.log(currentIndex[carouselIndex]);
   /*   document.getElementById("carousel-image-${carouselIndex}").src =
     images[currentIndex[carouselIndex]]; */
-  document.getElementById(`carousel-image-${carouselIndex}`).src =
-    images[currentIndex[carouselIndex]];
+  document.getElementById(`big_img`).src = images[carouselIndex];
 }
 
-function nextImage(carouselIndex) {
-  console.log("nextImage");
-  currentIndex[carouselIndex] =
-    (currentIndex[carouselIndex] + 1) % images.length;
-  updateImage(carouselIndex);
+function nextImage() {
+  currentIndex++;
+  currentIndex =
+    currentIndex >= images.length ? images.length - 1 : currentIndex;
+  updateImage(currentIndex);
 }
 
-function previousImage(carouselIndex) {
-  console.log("previ");
-  currentIndex[carouselIndex] =
-    (currentIndex[carouselIndex] - 1 + images.length) % images.length;
-  updateImage(carouselIndex);
+function previousImage() {
+  currentIndex--;
+  currentIndex = currentIndex <= 0 ? 0 : currentIndex;
+  updateImage(currentIndex);
 }
 
 // Initialize the carousel with the first image
