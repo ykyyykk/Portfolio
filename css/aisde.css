@@ -1,0 +1,21 @@
+aside button {
+  position: fixed; /* 固定位置 */
+  right: 20px; /* 距離右邊20px */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* 游標移到按鈕上 改變游標圖案 */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#ScrollToTop {
+  bottom: 60px;
+  margin-bottom: 10px;
+}
+
+#ScrollToBottom {
+  bottom: 20px;
+}

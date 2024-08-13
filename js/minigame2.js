@@ -102,6 +102,13 @@ function shoot(target) {
       console.log(`begin`);
     },
     update: () => {
+      // console.log(target);
+      // var top = $(target).css("top");
+      // var left = $(target).css("left");
+      // projectiles[target] = { top: top, left: left };
+      // console.log(projectiles[target]);
+    },
+    complete: () => {
       console.log(target);
       var top = $(target).css("top");
       var left = $(target).css("left");

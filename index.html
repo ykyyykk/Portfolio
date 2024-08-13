@@ -1,4 +1,3 @@
-<!-- 根據哪種版本的html(html5)編寫而成的 -->
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
   <!--語系 繁體中文-->
@@ -8,27 +7,89 @@
     <meta name="autor" content="Louise汪世傑" />
     <meta name="description" content="搜尋優化" />
     <title>汪世傑的作品集</title>
+
+    <script src="libs.js"></script>
     <!-- 將CSS載入 -->
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/aisde.css" />
     <script src="js/carousel.js"></script>
     <script src="js/scrollButton.js"></script>
   </head>
 
-  <!-- 主要內容的區塊 -->
   <body>
-    <!-- 頁首的區塊 -->
-    <header>
-      <a href="index.html" class="header-title">汪世傑作品集</a>
-      <nav>
-        <ul>
-          <li><a href="about.html">自我介紹</a></li>
-          <li><a href="portfolio.html">作品集</a></li>
-          <li><a href="contact.html">聯絡我</a></li>
-        </ul>
-      </nav>
+    <!-- 為了取得去除header後的高度 所以指定height: 50px -->
+    <header
+      class="d-flex p-10 bg-secondary align-items-center shadow"
+      style="height: 50px"
+    >
+      <button class="btn btn-outline-dark hover ms-3">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a
+        href="index.html"
+        class="fs-1 fw-bold text-white text-decoration-none ms-3"
+      >
+        汪世傑作品集
+      </a>
+
+      <div class="header_right ms-auto me-3">
+        <!-- TODO 明暗主題轉換 -->
+        <a class="text-white text-decoration-none me-3" href="about.html">
+          自我介紹
+        </a>
+        <a class="text-white text-decoration-none me-3" href="portfolio.html">
+          作品集
+        </a>
+        <a class="text-white text-decoration-none me-3" href="contact.html">
+          聯絡我
+        </a>
+      </div>
     </header>
-    <!-- 頭版的區塊 -->
+
     <main>
+      <div
+        class="gradient border border-1 border-warning w-100"
+        style="height: calc(100vh - 50px)"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos,
+        ipsa perferendis quidem totam blanditiis. Quibusdam, eum porro accusamus
+        recusandae vitae iusto, perspiciatis nihil eligendi suscipit modi illo
+        commodi provident. Obcaecati autem, impedit necessitatibus ducimus aut
+        voluptates perferendis corrupti explicabo vel saepe enim excepturi ex
+        quos provident expedita iure ab deserunt corporis quisquam fugit nostrum
+        numquam assumenda ea minima. Officiis. Odio distinctio delectus tempore
+        enim odit consequuntur amet! Aliquid, placeat ipsa hic neque itaque eum
+        distinctio, ea tempora aut porro maiores repellat eligendi non molestias
+        obcaecati praesentium animi laudantium eaque! Quae totam eligendi cum in
+        suscipit ipsum mollitia inventore sed qui odio dolorem, sit sapiente
+        exercitationem accusantium! Saepe autem assumenda consequuntur dolor
+        soluta quaerat? Error asperiores magnam non eligendi amet. Doloremque
+        accusantium corrupti ratione, fugit officiis facilis, error a iusto
+        aliquid pariatur dicta, qui explicabo harum saepe ut hic itaque illum
+        est! Ducimus distinctio eaque laborum rerum facilis optio eum?
+        Voluptatibus modi non officiis et ipsum, aliquid sed quidem a, illum
+        quis provident corporis, voluptate vitae perferendis vel ea. Modi,
+        expedita. Officiis corrupti expedita alias maiores enim architecto
+        facilis assumenda. Minima, quas. Iure reprehenderit, et ab unde veniam
+        est? Doloribus itaque quos obcaecati perspiciatis, dignissimos quibusdam
+        necessitatibus expedita quia facere sint molestias reiciendis culpa sed
+        natus a repudiandae provident libero! Eius ducimus pariatur illum harum
+        deserunt sequi aperiam repellat dolorem quod? Accusantium sint nemo
+        dolores labore molestiae laborum repellendus esse molestias beatae,
+        earum voluptatem incidunt, consequuntur ratione, explicabo aut
+        doloremque. Repudiandae distinctio non debitis minus qui laborum
+        perspiciatis quod deserunt! Dolores odio cum explicabo. Debitis, dolore
+        officiis quos a voluptatibus optio reprehenderit accusamus eaque iste
+        corrupti aut dolorum natus quia. Dolores deleniti animi rerum asperiores
+        officiis, possimus fuga vitae modi non alias harum nobis pariatur illum
+        adipisci iusto corporis tenetur ab, exercitationem dolorem temporibus
+        et! Repellendus facere inventore ullam delectus.
+        <!-- 遊戲大圖 -->
+        <img src="" alt="" />
+        <!-- mask -->
+        <img src="" alt="" />
+      </div>
+
       <div class="profile">
         <div class="picture">
           <img src="image/avatar.png" alt="大頭貼" />
@@ -89,57 +150,59 @@
           </div>
         </div>
       </div>
-
-      <table class="contact-table">
-        <tr>
-          <td><img src="image/line.png" alt="line" /></td>
-          <td>0950074430</td>
-        </tr>
-
-        <tr>
-          <td><img src="image/gmail.png" alt="gmail" /></td>
-          <td>louise87276@gmail.com</td>
-        </tr>
-      </table>
-
-      <table class="form-table">
-        <tr>
-          <td>
-            <label>姓名</label>
-            <!-- placeholder = 提示字 -->
-          </td>
-          <td>
-            <input type="text" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label>電子郵件</label>
-          </td>
-          <td>
-            <input type="email" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label>詢問內容</label>
-          </td>
-          <td>
-            <textarea id="message" name="your-message"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <!-- value直接寫在button上面 發送數據到action指定的URL -->
-            <input type="submit" class="button" value="送出" />
-          </td>
-        </tr>
-      </table>
     </main>
 
+    <table class="contact-table">
+      <tr>
+        <td><img src="image/line.png" alt="line" /></td>
+        <td>0950074430</td>
+      </tr>
+
+      <tr>
+        <td><img src="image/gmail.png" alt="gmail" /></td>
+        <td>louise87276@gmail.com</td>
+      </tr>
+    </table>
+
+    <table class="form-table">
+      <tr>
+        <td>
+          <label>姓名</label>
+          <!-- placeholder = 提示字 -->
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>電子郵件</label>
+        </td>
+        <td>
+          <input type="email" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>詢問內容</label>
+        </td>
+        <td>
+          <textarea id="message" name="your-message"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <!-- value直接寫在button上面 發送數據到action指定的URL -->
+          <input type="submit" class="button" value="送出" />
+        </td>
+      </tr>
+    </table>
+
     <aside>
-      <button id="ScrollToTop">Scroll To Top</button>
-      <button id="ScrollToBottom">Scroll To Bottom</button>
+      <button id="ScrollToTop"><i class="fa-solid fa-chevron-up"></i></button>
+      <button id="ScrollToBottom">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
     </aside>
   </body>
 </html>

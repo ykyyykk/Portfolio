@@ -15,48 +15,26 @@ html body {
   margin: 0px;
 }
 
-header {
-  display: flex; /* 使用flexbox佈局 */
-  justify-content: space-between; /* 讓內容在水平方向上兩端對齊 */
-  align-items: center; /* 垂直置中 */
-  padding: 0 30px; /* vertical horizontal */
-  background-color: #5d5d5d;
-}
-
-.header-title {
-  font-size: 30px;
-  color: white;
-  text-decoration: none;
-}
-
-nav ul {
-  display: flex; /* 使用flexbox佈局使項目水平排列 */
-  gap: 30px; /* 項目之間的間鉅 */
-  list-style-type: none; /* 移除預設的列表樣式 */
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  justify-content: center; /* 垂直置中 */
-}
-
 body {
   background-color: #848484;
 }
 
 main {
   display: flex;
-  margin-top: 200px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.gradient {
+  -webkit-mask-image: linear-gradient(to right, black, transparent);
+  mask-image: linear-gradient(to right, black, transparent);
+}
+
 .profile {
   display: flex;
   flex-direction: row;
+  margin-top: 200px;
   gap: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -195,25 +173,4 @@ textarea {
   width: 100%;
   max-width: 480px;
   align-self: center;
-}
-
-aside button {
-  position: fixed; /* 固定位置 */
-  right: 20px; /* 距離右邊20px */
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer; /* 游標移到按鈕上 改變游標圖案 */
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#ScrollToTop {
-  bottom: 60px;
-}
-
-#ScrollToBottom {
-  bottom: 20px;
 }
