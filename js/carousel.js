@@ -1,4 +1,5 @@
 let images = [
+  "",
   "image/1.jpg",
   "image/2.jpg",
   "image/3.jpg",
@@ -10,10 +11,12 @@ var currentIndex = 0;
 // 5秒
 var changeDuration = 3000;
 var animation;
+var lastImgElement;
 
 // 不知道為什麼 有的時候 沒有""會Error
 $(document).ready(() => {
   console.log("ready");
+  checkIndexShowImage();
   animationInit();
   animation.play();
 
@@ -27,10 +30,16 @@ $(document).ready(() => {
 });
 
 function updateImage(carouselIndex) {
-  // console.log(carouselIndex);
   // 避免手動選第三張 在按下一張的index不對
   currentIndex = carouselIndex;
-  document.getElementById("big_img").src = images[carouselIndex];
+  // console.log(currentIndex);
+  checkIndexShowImage();
+
+  $("#big_img").attr("src", images[currentIndex]);
+  ChangeFoucusBorder(currentIndex);
+
+  animation.reset();
+  animation.play();
 }
 
 function nextImage() {
@@ -55,7 +64,24 @@ function animationInit() {
     complete: () => {
       $("#fill").css("width", "0%");
       nextImage();
-      animation.play();
     },
   });
+}
+
+function checkIndexShowImage() {
+  if (currentIndex != 0) {
+    $("#trailer").css("display", "none");
+    $("#big_img").css("display", "block");
+  } else {
+    $("#trailer").css("display", "block");
+    $("#big_img").css("display", "none");
+  }
+}
+
+function ChangeFoucusBorder(currentIndex) {
+  $(`#carousel${currentIndex}`).addClass("border border-2 border-primary");
+  if ($(lastImgElement) != undefined) {
+    $(lastImgElement).removeClass("border border-2 border-primary");
+  }
+  lastImgElement = $(`#carousel${currentIndex}`);
 }

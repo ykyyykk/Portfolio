@@ -93,14 +93,28 @@
 
         <!-- 右側資訊 -->
         <div class="w-50 h-100 container float-end">
-          <!-- 作品大圖 -->
           <div class="position-relative mt-2">
-            <img
-              id="big_img"
-              class="img-fluid rounded col-lg-12 ratio ratio-16x9"
-              src="image/1.jpg"
-              alt="作品圖片"
-            />
+            <!-- 大圖 及 影片 -->
+            <div class="d-flex align-items-center justify-content-center">
+              <img
+                id="big_img"
+                class="rounded ratio ratio-16x9"
+                style="width: 850px; height: 480px"
+                src="image/1.jpg"
+                alt="作品圖片"
+              />
+              <iframe
+                id="trailer"
+                width="850"
+                height="480"
+                src="https://www.youtube.com/embed/pGC87JdJqho"
+                title="Littlefox 宣傳影片-逢魔之時"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
 
             <!-- 進度條 -->
             <div
@@ -123,46 +137,62 @@
           </div>
 
           <!-- 輪播圖片按鈕 -->
-          <div class="d-flex align-content-between position-relative">
+          <div
+            id="carouselContainer"
+            class="d-flex align-content-between position-relative gap-3 mt-3"
+          >
             <img
-              class="h-auto m-1 rounded"
+              id="carousel0"
+              class="h-auto rounded"
               style="width: 128px; cursor: pointer"
-              src="image/1.jpg"
+              src="image/0.png"
               onclick="updateImage(0)"
               alt=""
             />
             <img
-              class="h-auto m-1 rounded"
+              id="carousel1"
+              class="h-auto rounded"
+              style="width: 128px; cursor: pointer"
+              src="image/1.jpg"
+              onclick="updateImage(1,this)"
+              alt=""
+            />
+            <img
+              id="carousel2"
+              class="h-auto rounded"
               style="width: 128px; cursor: pointer"
               src="image/2.jpg"
-              onclick="updateImage(1)"
+              onclick="updateImage(2,this)"
               alt=""
             />
             <img
-              class="h-auto m-1 rounded"
+              id="carousel3"
+              class="h-auto rounded"
               style="width: 128px; cursor: pointer"
               src="image/3.jpg"
-              onclick="updateImage(2)"
+              onclick="updateImage(3,this)"
               alt=""
             />
             <img
-              class="h-auto m-1 rounded"
+              id="carousel4"
+              class="h-auto rounded"
               style="width: 128px; cursor: pointer"
               src="image/4.jpg"
-              onclick="updateImage(3)"
+              onclick="updateImage(4,this)"
               alt=""
             />
             <img
-              class="h-auto m-1 rounded"
+              id="carousel5"
+              class="h-auto rounded"
               style="width: 128px; cursor: pointer"
               src="image/5.jpg"
-              onclick="updateImage(4)"
+              onclick="updateImage(5,this)"
               alt=""
             />
           </div>
 
           <!-- 介紹文 -->
-          <div class="text-white fs-5 d-block position-relative mt">
+          <div class="text-white fs-5 d-block position-relative mt-3">
             <p class="text-start">世間萬物，皆為神靈</p>
             <p class="text-start ms-5">日本神道，八百萬神</p>
             <p class="text-start">以日本八百萬神為故事原型的ＡＲＰＧ。</p>
@@ -173,8 +203,6 @@
               擊敗Boss掠取能力，蒐集所有技能成為掌握千技之人。
             </p>
           </div>
-
-          TODO 新增三個QRCode 一個steam 一個網頁 一個android
         </div>
       </div>
 
