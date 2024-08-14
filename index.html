@@ -51,8 +51,11 @@
         class="border border-1 border-warning w-100"
         style="height: calc(100vh - 50px)"
       >
-        <!-- 遊戲背景圖片 -->
-        <img class="w-100 h-auto position-absolute" src="image/2.jpg" />
+        <!-- 遊戲背景圖片 --><img
+          class="w-100 position-absolute"
+          src="image/header.jpg"
+          style="object-fit: cover; height: calc(100vh - 50px)"
+        />
 
         <!-- 漸層Mask -->
         <div
@@ -60,12 +63,9 @@
           style="height: calc(100vh - 50px)"
         ></div>
 
-        <div
-          class="w-50 h-100 container float-end"
-          style="border: 1px solid black"
-        >
+        <div class="w-50 h-100 container float-end">
           <!-- 作品大圖 -->
-          <div class="position-relative">
+          <div class="position-relative mt-2">
             <img
               id="big_img"
               class="img-fluid rounded col-lg-12 ratio ratio-16x9"
@@ -73,6 +73,10 @@
               alt="作品圖片"
             />
 
+            <div
+              id="fill"
+              style="width: 0%; height: 1px; background-color: blue"
+            ></div>
             <button
               class="border border-0 bg-transparent position-absolute text-white top-50 start-0"
               onclick="previousImage()"
@@ -88,41 +92,38 @@
           </div>
 
           <!-- 輪播圖片按鈕 -->
-          <div
-            class="d-flex align-content-between position-relative"
-            style="border: 1px solid black"
-          >
+          <div class="d-flex align-content-between position-relative">
             <img
               class="h-auto m-1 rounded"
-              style="width: 128px"
+              style="width: 128px; cursor: pointer"
               src="image/1.jpg"
               onclick="updateImage(0)"
               alt=""
             />
             <img
               class="h-auto m-1 rounded"
-              style="width: 128px"
+              style="width: 128px; cursor: pointer"
               src="image/2.jpg"
               onclick="updateImage(1)"
               alt=""
             />
             <img
               class="h-auto m-1 rounded"
-              style="width: 128px"
+              style="width: 128px; cursor: pointer"
               src="image/3.jpg"
               onclick="updateImage(2)"
               alt=""
             />
             <img
               class="h-auto m-1 rounded"
-              style="width: 128px"
+              style="width: 128px; cursor: pointer"
               src="image/4.jpg"
               onclick="updateImage(3)"
               alt=""
             />
             <img
               class="h-auto m-1 rounded"
-              style="width: 128px"
+              style="width: 128px; cursor: pointer"
               src="image/5.jpg"
               onclick="updateImage(4)"
               alt=""
