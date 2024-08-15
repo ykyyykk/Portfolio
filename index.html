@@ -15,6 +15,9 @@
     <script src="js/carousel.js"></script>
     <script src="js/scrollButton.js"></script>
   </head>
+  <!-- TODO 明暗主題轉換 -->
+  <!-- TODO 在寬度最小時 影片和照片的高度在切換時差很多 -->
+  <!-- TODO 在1508 到 1400 之間QRCode不應該分成兩行 -->
 
   <!-- 限制不能左右滑 不知道為什麼 w-100都會有左右捲軸 -->
   <body class="overflow-x-hidden">
@@ -34,7 +37,6 @@
       </a>
 
       <div class="header_right ms-auto me-3">
-        <!-- TODO 明暗主題轉換 -->
         <a class="text-white text-decoration-none me-3" href="about.html">
           自我介紹
         </a>
@@ -47,208 +49,160 @@
       </div>
     </header>
 
-    <main>
-      <!-- 作品集 -->
-      <div
-        class="border border-1 border-warning w-100"
-        style="height: calc(100vh - 50px)"
-      >
-        <!-- 遊戲背景圖片 --><img
-          class="w-100 position-absolute"
+    <main style="height: calc(100vh - 50px)">
+      <div class="container-fluid h-100 position-relative">
+        <!-- 作品集1遊戲背景圖片 -->
+        <img
+          class="w-100 h-100 object-fit-fill position-absolute start-0 z-n1"
           src="image/header.jpg"
-          style="object-fit: cover; height: calc(100vh - 50px)"
         />
-
         <!-- 漸層Mask -->
-        <div
-          class="gradient position-absolute w-100"
-          style="height: calc(100vh - 50px)"
-        ></div>
-
-        <!-- Steam & GooglePlay -->
-        <div class="position-absolute d-flex gap-3 mt-3 ms-3">
-          <div class="d-flex align-items-center">
-            <p class="text-white me-3 fs-3">Steam</p>
-            <img
-              src="image/Steam逢魔之時.png"
-              style="width: 100px; height: 100px"
-              alt=""
-            />
-          </div>
-          <div class="d-flex align-items-center">
-            <p class="text-white me-3 fs-3">GooglePlay</p>
-            <img
-              src="image/GooglePlay逢魔之時.png"
-              style="width: 100px; height: 100px"
-              alt=""
-            />
-          </div>
-          <div class="d-flex align-items-center">
-            <p class="text-white me-3 fs-3">Simmer.io</p>
-            <img
-              src="image/SimmerQRCode.png"
-              style="width: 100px; height: 100px"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <!-- 右側資訊 -->
-        <div class="w-50 h-100 container float-end">
-          <div class="position-relative mt-2">
-            <!-- 大圖 及 影片 -->
-            <div class="d-flex align-items-center justify-content-center">
-              <img
-                id="big_img"
-                class="rounded ratio ratio-16x9"
-                style="width: 850px; height: 480px"
-                src="image/1.jpg"
-                alt="作品圖片"
-              />
-              <iframe
-                id="trailer"
-                width="850"
-                height="480"
-                src="https://www.youtube.com/embed/pGC87JdJqho"
-                title="Littlefox 宣傳影片-逢魔之時"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-
-            <!-- 進度條 -->
+        <div class="gradient position-absolute w-100 h-100 z-0"></div>
+        <!-- 作品集1 -->
+        <div class="row h-100">
+          <!-- 作品集1 左邊 -->
+          <div id="left_side" class="col-xxl col-xl">
+            <!-- 連結Group -->
             <div
-              id="fill"
-              style="width: 0%; height: 1px; background-color: blue"
-            ></div>
-
-            <!-- TODO width小於1400改直行 -->
-            <!-- TODO 右側自適應 寬度100% -->
-            <button
-              class="border border-0 bg-transparent position-absolute text-white top-50 start-0"
-              onclick="previousImage()"
+              class="d-flex mt-3 flex-wrap justify-content-evenly position-relative gap-3"
             >
-              <i class="fa-solid fa-chevron-left fs-1"></i>
-            </button>
-            <button
-              class="border border-0 bg-transparent position-absolute text-white top-50 end-0"
-              onclick="nextImage()"
-            >
-              <i class="fa-solid fa-chevron-right fs-1"></i>
-            </button>
+              <div
+                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap col-xxl-4 col-xl-12"
+              >
+                <p class="text-white fs-3 me-3">Steam</p>
+                <img
+                  src="image/Steam逢魔之時.png"
+                  style="width: 100px; height: 100px"
+                />
+              </div>
+              <div
+                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
+              >
+                <p class="text-white fs-3 me-3">GooglePlay</p>
+                <img
+                  src="image/GooglePlay逢魔之時.png"
+                  style="width: 100px; height: 100px"
+                />
+              </div>
+              <div
+                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
+              >
+                <p class="text-white fs-3 me-3">Simmer.io</p>
+                <img
+                  src="image/SimmerQRCode.png"
+                  style="width: 100px; height: 100px"
+                />
+              </div>
+            </div>
           </div>
-
-          <!-- 輪播圖片按鈕 -->
+          <!-- 作品集1 右邊 -->
           <div
-            id="carouselContainer"
-            class="d-flex align-content-between position-relative gap-3 mt-3"
+            id="right_side"
+            class="col-xxl col-xl-9 d-flex justify-content-center"
           >
-            <img
-              id="carousel0"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/0.png"
-              onclick="updateImage(0)"
-              alt=""
-            />
-            <img
-              id="carousel1"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/1.jpg"
-              onclick="updateImage(1,this)"
-              alt=""
-            />
-            <img
-              id="carousel2"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/2.jpg"
-              onclick="updateImage(2,this)"
-              alt=""
-            />
-            <img
-              id="carousel3"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/3.jpg"
-              onclick="updateImage(3,this)"
-              alt=""
-            />
-            <img
-              id="carousel4"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/4.jpg"
-              onclick="updateImage(4,this)"
-              alt=""
-            />
-            <img
-              id="carousel5"
-              class="h-auto rounded"
-              style="width: 128px; cursor: pointer"
-              src="image/5.jpg"
-              onclick="updateImage(5,this)"
-              alt=""
-            />
+            <div class="right-side-content w-100">
+              <!-- 為了水平置中按鈕所以將img包起來 -->
+              <div class="position-relative">
+                <!-- 選擇的作品圖片 -->
+                <img
+                  id="big_img"
+                  class="mt-2 rounded img-fluid w-100 h-auto object-fit-contain"
+                  style="display: none"
+                  src="image/1.jpg"
+                  alt="作品圖片"
+                />
+                <!-- height: 不設定的話h會太小 -->
+                <iframe
+                  id="trailer"
+                  class="mt-2 rounded w-100"
+                  style="height: 480px"
+                  src="https://www.youtube.com/embed/pGC87JdJqho"
+                  title="Littlefox 宣傳影片-逢魔之時"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+
+                <!-- 上一頁按鈕 -->
+                <button
+                  id="previousPageBtn"
+                  class="border border-0 bg-transparent position-absolute text-white top-50 start-0"
+                >
+                  <i class="fa-solid fa-chevron-left fs-1"></i>
+                </button>
+                <!-- 下一頁按鈕 -->
+                <button
+                  id="nextPageBtn"
+                  class="border border-0 bg-transparent position-absolute text-white top-50 end-0"
+                >
+                  <i class="fa-solid fa-chevron-right fs-1"></i>
+                </button>
+              </div>
+
+              <!-- 進度條 -->
+              <div
+                id="fill"
+                class="position-relative mt-0 bg-primary rounded"
+                style="width: 20%; height: 3px"
+              ></div>
+
+              <!-- 介紹文 -->
+              <div class="text-white fs-5 d-block position-relative mt-3">
+                <p class="text-start">世間萬物，皆為神靈</p>
+                <p class="text-start ms-5">日本神道，八百萬神</p>
+                <p class="text-start">以日本八百萬神為故事原型的ＡＲＰＧ。</p>
+                <p class="text-start">千萬技能，四散各地</p>
+                <p class="text-start ms-5">囊括依蒨，盡收手心</p>
+                <p class="text-start">探索地圖拿取秘笈，拜師學藝習得技能，</p>
+                <p class="text-start">
+                  擊敗Boss掠取能力，蒐集所有技能成為掌握千技之人。
+                </p>
+              </div>
+            </div>
           </div>
-
-          <!-- 介紹文 -->
-          <div class="text-white fs-5 d-block position-relative mt-3">
-            <p class="text-start">世間萬物，皆為神靈</p>
-            <p class="text-start ms-5">日本神道，八百萬神</p>
-            <p class="text-start">以日本八百萬神為故事原型的ＡＲＰＧ。</p>
-            <p class="text-start">千萬技能，四散各地</p>
-            <p class="text-start ms-5">囊括依蒨，盡收手心</p>
-            <p class="text-start">探索地圖拿取秘笈，拜師學藝習得技能，</p>
-            <p class="text-start">
-              擊敗Boss掠取能力，蒐集所有技能成為掌握千技之人。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="profile">
-        <div class="picture">
-          <img src="image/avatar.png" alt="大頭貼" />
-        </div>
-
-        <div class="details">
-          <div>姓名：汪世傑</div>
-          <div>學業：桃園農工 造園科 畢業</div>
-          <div>生日：1998年6月27日</div>
-        </div>
-      </div>
-
-      <div class="job_container">
-        <!-- 在這裡可以放置捲動區域的內容 -->
-        <div class="job_item">
-          <div class="company_name">公司名稱：村宏室內裝修</div>
-          <div class="job_title">職位：師傅</div>
-          <div class="senioirty">年資：2022/9~2023/10 1年2個月</div>
-        </div>
-
-        <div class="job_item">
-          <div class="company_name">公司名稱：奧奇盟科技</div>
-          <div class="job_title">職位：全端遊戲程式設計</div>
-          <div class="senioirty">年資：2021/8~2021/9 2個月</div>
-        </div>
-
-        <div class="job_item">
-          <div class="company_name">公司名稱：曉兔科技</div>
-          <div class="job_title">職位：前端端遊戲程式設計</div>
-          <div class="senioirty">年資：2021/1~2021/7 7個月</div>
-        </div>
-
-        <div class="job_item">
-          <div class="company_name">公司名稱：宏國室內裝修</div>
-          <div class="job_title">職位：學徒</div>
-          <div class="senioirty">年資：2017/8~2020/6 2年11個月</div>
         </div>
       </div>
     </main>
+
+    <div class="profile">
+      <div class="picture">
+        <img src="image/avatar.png" alt="大頭貼" />
+      </div>
+
+      <div class="details">
+        <div>姓名：汪世傑</div>
+        <div>學業：桃園農工 造園科 畢業</div>
+        <div>生日：1998年6月27日</div>
+      </div>
+    </div>
+
+    <div class="job_container">
+      <!-- 在這裡可以放置捲動區域的內容 -->
+      <div class="job_item">
+        <div class="company_name">公司名稱：村宏室內裝修</div>
+        <div class="job_title">職位：師傅</div>
+        <div class="senioirty">年資：2022/9~2023/10 1年2個月</div>
+      </div>
+
+      <div class="job_item">
+        <div class="company_name">公司名稱：奧奇盟科技</div>
+        <div class="job_title">職位：全端遊戲程式設計</div>
+        <div class="senioirty">年資：2021/8~2021/9 2個月</div>
+      </div>
+
+      <div class="job_item">
+        <div class="company_name">公司名稱：曉兔科技</div>
+        <div class="job_title">職位：前端端遊戲程式設計</div>
+        <div class="senioirty">年資：2021/1~2021/7 7個月</div>
+      </div>
+
+      <div class="job_item">
+        <div class="company_name">公司名稱：宏國室內裝修</div>
+        <div class="job_title">職位：學徒</div>
+        <div class="senioirty">年資：2017/8~2020/6 2年11個月</div>
+      </div>
+    </div>
 
     <table class="contact-table">
       <tr>

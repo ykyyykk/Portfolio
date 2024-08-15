@@ -16,7 +16,9 @@ var lastImgElement;
 // 不知道為什麼 有的時候 沒有""會Error
 $(document).ready(() => {
   console.log("ready");
+
   checkIndexShowImage();
+  ButtonInit();
   animationInit();
   animation.play();
 
@@ -36,7 +38,7 @@ function updateImage(carouselIndex) {
   checkIndexShowImage();
 
   $("#big_img").attr("src", images[currentIndex]);
-  ChangeFoucusBorder(currentIndex);
+  // ChangeFoucusBorder(currentIndex);
 
   animation.reset();
   animation.play();
@@ -50,7 +52,8 @@ function nextImage() {
 
 function previousImage() {
   currentIndex--;
-  currentIndex = currentIndex <= 0 ? images.length - 1 : currentIndex;
+  currentIndex = currentIndex < 0 ? images.length - 1 : currentIndex;
+  console.log(currentIndex);
   updateImage(currentIndex);
 }
 
@@ -65,6 +68,15 @@ function animationInit() {
       $("#fill").css("width", "0%");
       nextImage();
     },
+  });
+}
+
+function ButtonInit() {
+  $("#nextPageBtn").on("click", () => {
+    nextImage();
+  });
+  $("#previousPageBtn").on("click", () => {
+    previousImage();
   });
 }
 
