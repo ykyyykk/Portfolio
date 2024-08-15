@@ -4,41 +4,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>作品集</title>
-    <link rel="stylesheet" href="portfolio.css" />
+
+    <script src="js/libs.js"></script>
+    <link rel="stylesheet" href="css/test.css" />
   </head>
 
-  <body>
-    <header>
-      <a href="index.html" class="header-title">汪世傑作品集</a>
-      <nav>
-        <ul>
-          <li><a href="about.html">自我介紹</a></li>
-          <li><a href="portfolio.html">作品集</a></li>
-          <li><a href="contact.html">聯絡我</a></li>
-        </ul>
-      </nav>
-    </header>
-    <div class="carousel-container">
-      <div class="carousel-item">
-        <div class="carousel-title">逢魔之時</div>
-        <div class="carousel-image">
-          <button class="arrow left-arrow" onclick="previousImage(0)">
-            &#10094;
-          </button>
-          <img id="carousel-image-0" src="/image/1.jpg" alt="作品圖片" />
-          <button class="arrow right-arrow" onclick="nextImage(0)">
-            &#10095;
-          </button>
+  <body class="overflow-x-hidden bg-secondary">
+    <!-- 作品集 -->
+    <div class="container-fluid h-100">
+      <!-- 作品集1 -->
+      <div class="row h-100">
+        <!-- 作品集1 左邊 -->
+        <div id="left_side" class="col-xxl col-xl">
+          <!-- 連結Group -->
+          <div class="d-flex mt-3 flex-wrap justify-content-evenly gap-3">
+            <!-- Steam連結 col-xxl4 + group有flex-wrap 才會使他們在<1400px時縮成一行 -->
+            <!-- TODO 623後連結要變直列 -->
+            <div
+              class="d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-center flex-nowrap col-xxl col-xl-12"
+            >
+              <p class="text-black fs-3 me-3">Steam</p>
+              <div class="bg-black" style="width: 100px; height: 100px"></div>
+            </div>
+            <div
+              class="d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-center flex-nowrap col-xxl col-xl-12"
+            >
+              <p class="text-black fs-3 me-3">Steam</p>
+              <div class="bg-black" style="width: 100px; height: 100px"></div>
+            </div>
+            <div
+              class="d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-center flex-nowrap col-xxl col-xl-12"
+            >
+              <p class="text-black fs-3 me-3">Steam</p>
+              <div class="bg-black" style="width: 100px; height: 100px"></div>
+            </div>
+          </div>
         </div>
-        <div class="support">支援平台</div>
-        <div class="platforms">
-          <div class="platform">◆</div>
-          <div class="platform">◆</div>
-          <div class="platform">◆</div>
-          <div class="platform">◆</div>
+
+        <!-- 作品集2 右邊 -->
+        <div
+          id="right_side"
+          class="col-xxl col-xl-9 d-flex justify-content-center"
+        >
+          <div class="right-side-content w-100">
+            <!-- 為了水平置中按鈕所以將img包起來 -->
+            <div class="position-relative">
+              <!-- 選擇的作品圖片 -->
+              <img
+                id="big_img"
+                class="mt-2 rounded img-fluid w-100 h-auto object-fit-contain"
+                src="image/1.jpg"
+                alt="作品圖片"
+              />
+
+              <!-- 上一頁按鈕 -->
+              <button
+                class="border border-0 bg-transparent position-absolute text-white top-50 start-0"
+              >
+                <i class="fa-solid fa-chevron-left fs-1"></i>
+              </button>
+              <!-- 下一頁按鈕 -->
+              <button
+                class="border border-0 bg-transparent position-absolute text-white top-50 end-0"
+              >
+                <i class="fa-solid fa-chevron-right fs-1"></i>
+              </button>
+            </div>
+
+            <!-- 進度條 -->
+            <div
+              id="fill"
+              class="bg-primary mt-2"
+              style="width: 20%; height: 1px"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
-    <script src="firstgame.js"></script>
   </body>
 </html>

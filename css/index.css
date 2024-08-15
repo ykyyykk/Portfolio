@@ -13,8 +13,6 @@ html body {
   padding: 0px;
   /* 四周是否留白 */
   margin: 0px;
-  /* 限制不能左右滑 不知道為什麼 w-100都會有左右捲軸 */
-  overflow-x: hidden;
 }
 
 body {
