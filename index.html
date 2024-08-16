@@ -8,6 +8,12 @@
     <meta name="description" content="搜尋優化" />
     <title>汪世傑的作品集</title>
 
+    <!-- 單獨匯入jquery試試看這樣還會不會有Error -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script src="js/libs.js"></script>
     <!-- 將CSS載入 -->
     <link rel="stylesheet" href="css/index.css" />
@@ -67,7 +73,7 @@
               class="d-flex mt-3 flex-wrap justify-content-evenly position-relative gap-3"
             >
               <div
-                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap col-xxl-4 col-xl-12"
+                class="btn m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap col-xxl-4 col-xl-12"
               >
                 <p class="text-white fs-3 me-3">Steam</p>
                 <img
@@ -76,7 +82,7 @@
                 />
               </div>
               <div
-                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
+                class="btn m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
               >
                 <p class="text-white fs-3 me-3">GooglePlay</p>
                 <img
@@ -85,7 +91,7 @@
                 />
               </div>
               <div
-                class="m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
+                class="btn m-0 d-flex flex-md-row flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center flex-nowrap-4 col-xxl col-xl-12"
               >
                 <p class="text-white fs-3 me-3">Simmer.io</p>
                 <img
@@ -103,26 +109,27 @@
             <div class="right-side-content w-100">
               <!-- 為了水平置中按鈕所以將img包起來 -->
               <div class="position-relative">
-                <!-- 選擇的作品圖片 -->
-                <img
-                  id="big_img"
-                  class="mt-2 rounded img-fluid w-100 h-auto object-fit-contain"
-                  style="display: none"
-                  src="image/1.jpg"
-                  alt="作品圖片"
-                />
-                <!-- height: 不設定的話h會太小 -->
-                <iframe
-                  id="trailer"
-                  class="mt-2 rounded w-100"
-                  style="height: 480px"
-                  src="https://www.youtube.com/embed/pGC87JdJqho"
-                  title="Littlefox 宣傳影片-逢魔之時"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
+                <!-- style是為了16:9顯示 (9/16 = 0.5625 = 56.25%) -->
+                <div class="position-relative w-100" style="padding-top: 56.2%">
+                  <!-- 原始大小600 * 315 -->
+                  <img
+                    id="big_img"
+                    class="position-absolute w-100 h-100 top-0 start-0 rounded-3"
+                    src="image/1.jpg"
+                    alt="作品圖片"
+                  />
+                  <!-- 選擇的作品圖片 -->
+                  <iframe
+                    id="trailer"
+                    class="position-absolute w-100 h-100 top-0 start-0 rounded-3"
+                    src="https://www.youtube.com/embed/pGC87JdJqho"
+                    title="Littlefox 宣傳影片-逢魔之時"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
 
                 <!-- 上一頁按鈕 -->
                 <button

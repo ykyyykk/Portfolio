@@ -19,9 +19,6 @@ loadJs(
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 );
 
-// jQuery_v3.7.1
-loadJs("https://code.jquery.com/jquery-3.7.1.js");
-
 // FontAwesome_v6.0.0
 loadCSS(
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"

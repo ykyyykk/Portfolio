@@ -15,8 +15,6 @@ var lastImgElement;
 
 // 不知道為什麼 有的時候 沒有""會Error
 $(document).ready(() => {
-  console.log("ready");
-
   checkIndexShowImage();
   ButtonInit();
   animationInit();
