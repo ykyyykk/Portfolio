@@ -28,6 +28,9 @@ loadCSS(
 // loadCSS("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 // loadJs("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js");
 
+// <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+// <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 // animejs
 loadJs("https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js");
 
