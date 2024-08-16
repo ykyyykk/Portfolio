@@ -14,12 +14,16 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
+    <!-- 放在lib會有error -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script src="js/libs.js"></script>
     <!-- 將CSS載入 -->
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/aisde.css" />
     <script src="js/carousel.js"></script>
     <script src="js/scrollButton.js"></script>
+    <link rel="icon" href="image/favicon.png" />
   </head>
   <!-- TODO 明暗主題轉換 -->
   <!-- TODO 在寬度最小時 影片和照片的高度在切換時差很多 -->
@@ -119,10 +123,13 @@
                     alt="作品圖片"
                   />
                   <!-- 選擇的作品圖片 -->
+                  <!--  src的embed後面是youtub_id 要再加入"?enablejsapi=1"允許API控制影片，否則無效 -->
+                  <!-- 還需要加入onload -->
+                  <!-- https://hackmd.io/@Kyosukewu/HkkMh8Urt -->
                   <iframe
                     id="trailer"
                     class="position-absolute w-100 h-100 top-0 start-0 rounded-3"
-                    src="https://www.youtube.com/embed/pGC87JdJqho"
+                    src="https://www.youtube.com/embed/pGC87JdJqho?enablejsapi=1"
                     title="Littlefox 宣傳影片-逢魔之時"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -151,7 +158,7 @@
               <div
                 id="fill"
                 class="position-relative mt-0 bg-primary rounded"
-                style="width: 20%; height: 3px"
+                style="width: 0%; height: 3px"
               ></div>
 
               <!-- 介紹文 -->

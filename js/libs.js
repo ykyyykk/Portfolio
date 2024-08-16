@@ -30,3 +30,7 @@ loadCSS(
 
 // animejs
 loadJs("https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js");
+
+// youtube iframe api
+// loadJs("https://www.youtube.com/iframe_api");
+//<script src="https://www.youtube.com/iframe_api"></script>;

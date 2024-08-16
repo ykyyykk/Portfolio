@@ -12,12 +12,36 @@ var currentIndex = 0;
 var changeDuration = 3000;
 var animation;
 var lastImgElement;
+var player;
+
+function animationInit() {
+  animation = anime({
+    targets: "#fill",
+    width: "100%",
+    easing: "linear",
+    duration: changeDuration,
+    autoplay: false,
+    complete: () => {
+      $("#fill").css("width", "0%");
+      nextImage();
+    },
+  });
+}
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("trailer", {
+    events: {
+      onStateChange: onPlayerStateChange,
+    },
+  });
+}
 
 // 不知道為什麼 有的時候 沒有""會Error
 $(document).ready(() => {
   checkIndexShowImage();
   ButtonInit();
   animationInit();
+  onYouTubeIframeAPIReady();
   animation.play();
 
   $("#big_img").on("mouseenter", () => {
@@ -51,22 +75,7 @@ function nextImage() {
 function previousImage() {
   currentIndex--;
   currentIndex = currentIndex < 0 ? images.length - 1 : currentIndex;
-  console.log(currentIndex);
   updateImage(currentIndex);
-}
-
-function animationInit() {
-  animation = anime({
-    targets: "#fill",
-    width: "100%",
-    easing: "linear",
-    duration: changeDuration,
-    autoplay: false,
-    complete: () => {
-      $("#fill").css("width", "0%");
-      nextImage();
-    },
-  });
 }
 
 function ButtonInit() {
@@ -86,6 +95,14 @@ function checkIndexShowImage() {
     $("#trailer").css("display", "block");
     $("#big_img").css("display", "none");
   }
+}
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING) {
+    animation.pause();
+    return;
+  }
+  animation.play();
 }
 
 function ChangeFoucusBorder(currentIndex) {
