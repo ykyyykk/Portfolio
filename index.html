@@ -25,6 +25,7 @@
     <script src="js/scrollButton.js"></script>
     <link rel="icon" href="image/favicon.png" />
   </head>
+
   <!-- TODO 明暗主題轉換 -->
 
   <!-- 限制不能左右滑 不知道為什麼 w-100都會有左右捲軸 -->
@@ -69,33 +70,33 @@
         <!-- 作品集1 -->
         <div class="row h-100">
           <!-- 作品集1 左邊 -->
-          <div id="left_side" class="col-xxl col-xl">
+          <div id="left_side" class="col-xxl col-xl col-lg col-md">
             <!-- 連結Group -->
             <div
               class="d-flex mt-3 flex-xxl-row flex-wrap justify-content-evenly position-relative gap-sm-3 gap-0"
             >
               <div
-                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl border border-2"
+                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl"
               >
-                <p class="text-white fs-3 me-3">Steam</p>
+                <p class="text-white fs-3">Steam</p>
                 <img
                   src="image/Steam逢魔之時.png"
                   style="width: 100px; height: 100px"
                 />
               </div>
               <div
-                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl border border-2"
+                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl"
               >
-                <p class="text-white fs-3 me-3">GooglePlay</p>
+                <p class="text-white fs-3">GooglePlay</p>
                 <img
                   src="image/GooglePlay逢魔之時.png"
                   style="width: 100px; height: 100px"
                 />
               </div>
               <div
-                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl border border-2"
+                class="btn m-0 d-flex flex-xxl-column flex-xl-column flex-md-column flex-sm-column flex-column align-items-center justify-content-xl-between justify-content-xxl-center col-xl-12 flex-nowrap-4 col-xxl"
               >
-                <p class="text-white fs-3 me-3">Simmer.io</p>
+                <p class="text-white fs-3">Simmer.io</p>
                 <img
                   src="image/SimmerQRCode.png"
                   style="width: 100px; height: 100px"
@@ -106,13 +107,16 @@
           <!-- 作品集1 右邊 -->
           <div
             id="right_side"
-            class="col-xxl col-xl-9 d-flex justify-content-center"
+            class="col-xxl col-xl-9 col-lg-9 col-md-9 d-flex justify-content-center"
           >
             <div class="right-side-content w-100">
               <!-- 為了水平置中按鈕所以將img包起來 -->
               <div class="position-relative">
                 <!-- style是為了16:9顯示 (9/16 = 0.5625 = 56.25%) -->
-                <div class="position-relative w-100" style="padding-top: 56.2%">
+                <div
+                  class="position-relative w-100 mt-3"
+                  style="padding-top: 56.2%"
+                >
                   <!-- 原始大小600 * 315 -->
                   <img
                     id="big_img"
