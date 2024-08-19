@@ -13,12 +13,12 @@ const schema = {
     prop: "title",
     data: String,
   },
-  year: {
-    prop: "year",
+  realease_year: {
+    prop: "realease_year",
     data: String,
   },
 };
 
-readXlsxFile("./dailycost.xlsx", { schema: schema }).then((rows) => {
-  // console.log(rows.toString());
+readXlsxFile("./imdb.xlsx", { schema: schema }).then((rows) => {
+  console.log(rows.toString());
 });
